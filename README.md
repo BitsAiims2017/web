@@ -24,7 +24,7 @@ Separate logics and CSS of each and every component into its own folder, with pa
 
 `index.js` is entry point for our views. It renders the app component. 
 
-*Compulsory*, you must use [StandardJS](https://standardjs.com/) code style to write your Javascript and JSX.
+*Compulsorily*, you must use [StandardJS](https://standardjs.com/) code style to write your Javascript and JSX.
 It's a command line tool as well, which will fix our Javascript and JSX for us, as long as there are no errors. 
 *psst..* just.. get its editor pluggins, and bind them to some key combination.
 
