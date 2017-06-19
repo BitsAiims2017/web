@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/357df65b3a1c43b6b98ed9e40905d6f1)](https://www.codacy.com/app/UtkarshMe/web?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BitsAiims2017/web&amp;utm_campaign=Badge_Grade)
 # WebApp for AIIMS, Bhopal
 
 ### Contributing
