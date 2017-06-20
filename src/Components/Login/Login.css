@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300,400');
+
+/* Huge  container which contains everything */
+
+.Login-Container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("../../assets/img/login-wallpaper.jpg");
+}
+
+
+/* Small wrapper that wraps up login and sign up forms */
+
+.LoginWrapper {
+    background: rgba(0, 0, 0, 0.3);
+    width: 60vw;
+    height: 60vh;
+    position: absolute;
+    top: 20vh;
+    left: 20vw;
+    display: flex;
+}
+
+
+/* Styling login and register halves */
+
+
+/* Login styles */
+
+.Login {
+    flex-basis: 60%;
+    border-right: none;
+    background: rgb(46, 40, 44);
+    color: rgb(218, 215, 216);
+}
+
+.Login-content-wrapper {
+    padding: 20px;
+}
+
+.Login-content-wrapper h1,
+.Login-content-wrapper h2 {
+    text-align: left;
+    font-size: 3vw;
+    font-family: 'Roboto';
+    font-weight: 200;
+}
+
+.Login-content-wrapper h3,
+.Login-content-wrapper h4 {
+    text-align: left;
+    font-family: 'Roboto';
+    font-weight: 100;
+    margin-top: 0;
+    color: #BBB;
+}
+
+
+/* Login form styles to override semantic UI's default ones */
+
+.Login-content-wrapper input[type="text"],
+.Login-content-wrapper input[type="password"] {
+    background: rgb(85, 78, 85) ;
+    color: rgba(245, 245, 245, 0.93) ;
+    font-family: 'Roboto' ;
+    font-weight: 100;
+    border-radius: 0 ;
+    margin: 0 ;
+    width: 30vw;
+    font-size: 1.5vw;
+}
+
+.Login-content-wrapper input[type="text"]::selection,
+.Login-content-wrapper input[type="password"]::selection {
+    background: rgba(0, 0, 0, 0.4);
+    /* WebKit/Blink Browsers */
+    color: whitesmoke;
+}
+
+.Login-content-wrapper input[type="text"]::selection,
+.Login-content-wrapper input[type="password"]::selection {
+    background: rgba(0, 0, 0, 0.4);
+    /* Gecko Browsers */
+    color: whitesmoke;
+}
+
+.Login-content-wrapper i.user.icon {
+    color: rgba(255, 255, 255, 0.79) ;
+}
+
+.Login-content-wrapper i.lock.icon {
+    color: rgba(255, 255, 255, 0.79) ;
+}
+
+
+/* Button stylings */
+
+button.ui.button,
+button.ui.button:active,
+button.ui.button:focus {
+    background-color: rgb(232, 84, 58);
+    color: rgba(255, 255, 255, .9);
+}
+
+button.ui.button:hover {
+    background-color: rgba(183, 54, 54, 0.89);
+    background-image: none;
+    -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, .15) inset;
+    box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, .15) inset;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+button.ui.button:active {
+    transform: translate3d(5px, 5px, 0px);
+}
+
+button.ui.button {
+    background: rgb(232, 84, 58);
+    border-radius: 0;
+    font-size: 1.4vw;
+    color: rgba(245, 245, 245, 0.7);
+    margin-top: 5vh;
+    font-family: 'Roboto';
+    font-weight: 500;
+    -webkit-transition: all 0.1s;
+    -o-transition: all 0.1s;
+    transition: all 0.1s;
+}
+
+
+/* Styling the right half now */
+
+.Right-half {
+    flex-basis: 40%;
+    background: rgb(232, 84, 58);
+    color: whitesmoke;
+    padding: 20px;
+}
+
+.Right-half-text {
+    position: relative;
+    top: 0vh;
+    width: 90%;
+    height: 50%;
+    margin: 0 auto;
+    font-family: 'Roboto';
+}
+
+.Right-half-text h1 {
+    text-align: center;
+    font-size: 2.5vw;
+    font-family: 'Roboto';
+    font-weight: 200;
+    margin: 0;
+}
+
+.Right-half-text p {
+    line-height: 4vh;
+    font-size: 1vw;
+    font-weight: 200;
+    letter-spacing: 0.02vw;
+    height: 18vh;
+    padding: 1vw 0;
+    text-align: center;
+}
+
+.Right-half-text hr {
+    height: 0;
+    width: 100%;
+    position: relative;
+    border-color: rgba(255, 0, 0, 0.29);
+    border-bottom: none;
+    margin: 0 auto;
+}
+
+.Response-Box {
+    position: relative;
+    top: 4vh;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1vw;
+    /* height: 23vh; */
+    color: rgba(245, 245, 245, 1);
+    text-align: center;
+    line-height: 4vh;
+    font-weight: 200;
+    letter-spacing: 0.02vw;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.Response-active {
+    background: rgba(214, 45, 45, 0.36);
+    border-radius: 3px;
+    position: relative;
+    top: 4vh;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1vw;
+    /* height: 23vh; */
+    color: rgba(245, 245, 245, 1);
+    text-align: center;
+    line-height: 4vh;
+    font-weight: 200;
+    letter-spacing: 0.02vw;
+}
