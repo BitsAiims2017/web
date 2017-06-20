@@ -63,12 +63,12 @@
 
 .Login-content-wrapper input[type="text"],
 .Login-content-wrapper input[type="password"] {
-    background: rgb(85, 78, 85) ;
-    color: rgba(245, 245, 245, 0.93) ;
-    font-family: 'Roboto' ;
+    background: rgb(85, 78, 85) !important;
+    color: rgba(245, 245, 245, 0.93) !important;
+    font-family: 'Roboto' !important;
     font-weight: 100;
-    border-radius: 0 ;
-    margin: 0 ;
+    border-radius: 0 !important;
+    margin: 0 !important;
     width: 30vw;
     font-size: 1.5vw;
 }
@@ -88,11 +88,11 @@
 }
 
 .Login-content-wrapper i.user.icon {
-    color: rgba(255, 255, 255, 0.79) ;
+    color: rgba(255, 255, 255, 0.79) !important;
 }
 
 .Login-content-wrapper i.lock.icon {
-    color: rgba(255, 255, 255, 0.79) ;
+    color: rgba(255, 255, 255, 0.79) !important;
 }
 
 
