@@ -1,31 +1,59 @@
 import React, { Component } from "react";
 import Login from "../Login/Login";
+import Logout from "../Logout/Logout";
 import "./App.css";
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { token: "" };
-		this.handleToken = this.handleToken.bind(this);
+		this.rememberToken = this.rememberToken.bind(this);
+		this.forgetToken = this.forgetToken.bind(this);
 	}
 
-	handleToken(token) {
+	rememberToken(token) {
 		this.setState({
 			token: token
 		});
+		localStorage["aiims-login-token"] = JSON.stringify(token);
+		window.location.reload();
 	}
 
-	render() {
-		if (!this.state.token) {
+	forgetToken() {
+		this.setState({
+			token: ''
+		});
+		delete window.localStorage["aiims-login-token"];
+		window.location.reload();
+	}
+
+	componentWillMount() {
+		if (!localStorage["aiims-login-token"]) {
 			return (
 				<div className="App">
-					<Login token={this.handleToken} />
+					<Login token={this.rememberToken} />
 				</div>
 			);
 		} else {
 			return (
 				<div>
-					<h1>Yay! I've logged in!</h1>
+					<Logout forgetToken={this.forgetToken} />
+				</div>
+			);
+		}
+	}
+
+	render() {
+		if (!localStorage["aiims-login-token"]) {
+			return (
+				<div className="App">
+					<Login token={this.rememberToken} />
+				</div>
+			);
+		} else {
+			return (
+				<div>
+					<Logout forgetToken={this.forgetToken} />
 				</div>
 			);
 		}
