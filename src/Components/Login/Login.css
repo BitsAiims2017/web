@@ -11,7 +11,6 @@
     background: url("../../assets/img/login-wallpaper.jpg");
 }
 
-
 /* Small wrapper that wraps up login and sign up forms */
 
 .LoginWrapper {
@@ -24,9 +23,7 @@
     display: flex;
 }
 
-
 /* Styling login and register halves */
-
 
 /* Login styles */
 
@@ -41,16 +38,14 @@
     padding: 20px;
 }
 
-.Login-content-wrapper h1,
-.Login-content-wrapper h2 {
+.Login-content-wrapper h1, .Login-content-wrapper h2 {
     text-align: left;
     font-size: 3vw;
     font-family: 'Roboto';
     font-weight: 200;
 }
 
-.Login-content-wrapper h3,
-.Login-content-wrapper h4 {
+.Login-content-wrapper h3, .Login-content-wrapper h4 {
     text-align: left;
     font-family: 'Roboto';
     font-weight: 100;
@@ -58,11 +53,9 @@
     color: #BBB;
 }
 
-
 /* Login form styles to override semantic UI's default ones */
 
-input[type="text"],
-input[type="password"] {
+input[type="text"], input[type="password"] {
     background: rgb(85, 78, 85) !important;
     color: rgba(245, 245, 245, 0.93) !important;
     font-family: 'Roboto' !important;
@@ -73,15 +66,13 @@ input[type="password"] {
     font-size: 1.5vw;
 }
 
-input[type="text"]::selection,
-input[type="password"]::selection {
+input[type="text"]::selection, input[type="password"]::selection {
     background: rgba(0, 0, 0, 0.4);
     /* WebKit/Blink Browsers */
     color: whitesmoke;
 }
 
-input[type="text"]::selection,
-input[type="password"]::selection {
+input[type="text"]::selection, input[type="password"]::selection {
     background: rgba(0, 0, 0, 0.4);
     /* Gecko Browsers */
     color: whitesmoke;
@@ -95,12 +86,9 @@ i.lock.icon {
     color: rgba(255, 255, 255, 0.79) !important;
 }
 
-
 /* Button stylings */
 
-button.ui.button,
-button.ui.button:active,
-button.ui.button:focus {
+button.ui.button, button.ui.button:active, button.ui.button:focus {
     background-color: rgb(232, 84, 58);
     color: rgba(255, 255, 255, .9);
 }
@@ -108,8 +96,10 @@ button.ui.button:focus {
 button.ui.button:hover {
     background-color: rgba(183, 54, 54, 0.89);
     background-image: none;
-    -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, .15) inset;
-    box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, .15) inset;
+    -webkit-box-shadow: 0 0 0 1px transparent inset,
+        0 0 0 0 rgba(34, 36, 38, .15) inset;
+    box-shadow: 0 0 0 1px transparent inset,
+        0 0 0 0 rgba(34, 36, 38, .15) inset;
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -125,13 +115,85 @@ button.ui.button {
     margin-top: 5vh;
     font-family: 'Roboto';
     font-weight: 500;
+    -webkit-transition: all 0.1s;
+    -o-transition: all 0.1s;
+    transition: all 0.1s;
+}
+
+/* Styling the right half now */
+
+.Right-half {
+    flex-basis: 40%;
+    background: rgb(232, 84, 58);
+    color: whitesmoke;
+    padding: 20px;
+}
+
+.Right-half-text {
+    position: relative;
+    top: 0vh;
+    width: 90%;
+    height: 50%;
+    margin: 0 auto;
+    font-family: 'Roboto';
+}
+
+.Right-half-text h1 {
+    text-align: center;
+    font-size: 2.5vw;
+    font-family: 'Roboto';
+    font-weight: 200;
+    margin: 0;
+}
+
+.Right-half-text p {
+    line-height: 4vh;
+    font-size: 1vw;
+    font-weight: 200;
+    letter-spacing: 0.02vw;
+    height: 18vh;
+    padding: 1vw 0;
+    text-align: center;
+}
+
+.Right-half-text hr {
+    height: 0;
+    width: 100%;
+    position: relative;
+    border-color: rgba(255, 0, 0, 0.29);
+    border-bottom: none;
+    margin: 0 auto;
+}
+
+.Response-Box {
+    position: relative;
+    top: 4vh;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1vw;
+    /* height: 23vh; */
+    color: rgba(245, 245, 245, 1);
+    text-align: center;
+    line-height: 4vh;
+    font-weight: 200;
+    letter-spacing: 0.02vw;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
 }
 
-.Register {
-    flex-basis: 40%;
-    background: rgb(232, 84, 58);
-    color: whitesmoke;
+.Response-active {
+    background: rgba(214, 45, 45, 0.36);
+    border-radius: 3px;
+    position: relative;
+    top: 4vh;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1vw;
+    /* height: 23vh; */
+    color: rgba(245, 245, 245, 1);
+    text-align: center;
+    line-height: 4vh;
+    font-weight: 200;
+    letter-spacing: 0.02vw;
 }
