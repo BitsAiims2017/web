@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Input } from "semantic-ui-react";
 import Login from "../Login/Login";
 import "./App.css";
 
@@ -12,17 +11,24 @@ class App extends Component {
 
 	handleToken(token) {
 		this.setState({
-		 	token: token
-		 }); 
-		console.log(this.state.token);
+			token: token
+		});
 	}
 
 	render() {
-		return (
-			<div className="App">
-				<Login token={this.handleToken} />
-			</div>
-		);
+		if (!this.state.token) {
+			return (
+				<div className="App">
+					<Login token={this.handleToken} />
+				</div>
+			);
+		} else {
+			return (
+				<div>
+					<h1>Yay! I've logged in!</h1>
+				</div>
+			);
+		}
 	}
 }
 
