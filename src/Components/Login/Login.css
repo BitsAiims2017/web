@@ -11,6 +11,7 @@
     background: url("../../assets/img/login-wallpaper.jpg");
 }
 
+
 /* Small wrapper that wraps up login and sign up forms */
 
 .LoginWrapper {
@@ -23,7 +24,9 @@
     display: flex;
 }
 
+
 /* Styling login and register halves */
+
 
 /* Login styles */
 
@@ -38,14 +41,16 @@
     padding: 20px;
 }
 
-.Login-content-wrapper h1, .Login-content-wrapper h2 {
+.Login-content-wrapper h1,
+.Login-content-wrapper h2 {
     text-align: left;
     font-size: 3vw;
     font-family: 'Roboto';
     font-weight: 200;
 }
 
-.Login-content-wrapper h3, .Login-content-wrapper h4 {
+.Login-content-wrapper h3,
+.Login-content-wrapper h4 {
     text-align: left;
     font-family: 'Roboto';
     font-weight: 100;
@@ -53,42 +58,49 @@
     color: #BBB;
 }
 
+
 /* Login form styles to override semantic UI's default ones */
 
-input[type="text"], input[type="password"] {
-    background: rgb(85, 78, 85) !important;
-    color: rgba(245, 245, 245, 0.93) !important;
-    font-family: 'Roboto' !important;
+.Login-content-wrapper input[type="text"],
+.Login-content-wrapper input[type="password"] {
+    background: rgb(85, 78, 85) ;
+    color: rgba(245, 245, 245, 0.93) ;
+    font-family: 'Roboto' ;
     font-weight: 100;
-    border-radius: 0 !important;
-    margin: 0 !important;
+    border-radius: 0 ;
+    margin: 0 ;
     width: 30vw;
     font-size: 1.5vw;
 }
 
-input[type="text"]::selection, input[type="password"]::selection {
+.Login-content-wrapper input[type="text"]::selection,
+.Login-content-wrapper input[type="password"]::selection {
     background: rgba(0, 0, 0, 0.4);
     /* WebKit/Blink Browsers */
     color: whitesmoke;
 }
 
-input[type="text"]::selection, input[type="password"]::selection {
+.Login-content-wrapper input[type="text"]::selection,
+.Login-content-wrapper input[type="password"]::selection {
     background: rgba(0, 0, 0, 0.4);
     /* Gecko Browsers */
     color: whitesmoke;
 }
 
-i.user.icon {
-    color: rgba(255, 255, 255, 0.79) !important;
+.Login-content-wrapper i.user.icon {
+    color: rgba(255, 255, 255, 0.79) ;
 }
 
-i.lock.icon {
-    color: rgba(255, 255, 255, 0.79) !important;
+.Login-content-wrapper i.lock.icon {
+    color: rgba(255, 255, 255, 0.79) ;
 }
+
 
 /* Button stylings */
 
-button.ui.button, button.ui.button:active, button.ui.button:focus {
+button.ui.button,
+button.ui.button:active,
+button.ui.button:focus {
     background-color: rgb(232, 84, 58);
     color: rgba(255, 255, 255, .9);
 }
@@ -96,10 +108,8 @@ button.ui.button, button.ui.button:active, button.ui.button:focus {
 button.ui.button:hover {
     background-color: rgba(183, 54, 54, 0.89);
     background-image: none;
-    -webkit-box-shadow: 0 0 0 1px transparent inset,
-        0 0 0 0 rgba(34, 36, 38, .15) inset;
-    box-shadow: 0 0 0 1px transparent inset,
-        0 0 0 0 rgba(34, 36, 38, .15) inset;
+    -webkit-box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, .15) inset;
+    box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, .15) inset;
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -119,6 +129,7 @@ button.ui.button {
     -o-transition: all 0.1s;
     transition: all 0.1s;
 }
+
 
 /* Styling the right half now */
 

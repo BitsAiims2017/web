@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDom from "react-dom";
+import "../../libs/semantic-ui/semantic.min.css"
+import "./Login.css";
 import { Input } from "semantic-ui-react";
 import { Button } from "semantic-ui-react";
 import { Form } from "semantic-ui-react";
 import $ from "jquery";
-import "./Login.css";
 
 export default class Login extends React.Component {
 	// Constructor
