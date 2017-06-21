@@ -1,10 +1,9 @@
 import React from "react";
-import ReactDom from "react-dom";
+import "../../libs/semantic-ui/semantic.min.css";
+import "./Login.css";
 import { Input } from "semantic-ui-react";
 import { Button } from "semantic-ui-react";
-import { Form } from "semantic-ui-react";
 import $ from "jquery";
-import "./Login.css";
 
 export default class Login extends React.Component {
 	// Constructor
@@ -62,9 +61,9 @@ export default class Login extends React.Component {
 							as I said earlier, will post a request to the server. Server will then send a token, which is to be used for any
 							further requests in a session.
 							*/}
-							<Button type="submit" onClick={this.handleSubmit}>
+							<button onClick={this.handleSubmit} className="ui button">
 								LOGIN
-							</Button>
+							</button>
 
 						</div>
 					</div>
@@ -118,7 +117,7 @@ export default class Login extends React.Component {
 				responseBox.addClass("Response-active");
 				if (err.status === 404) {
 					// If the username is wrong
-					let responseMessage = `Please check if the username you entered is correct and try again.`;
+					let responseMessage = `Username you just entered is incorrect. Try again please.`;
 					responseBox.children().text(responseMessage).fadeIn(300);
 				}
 

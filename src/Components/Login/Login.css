@@ -8,7 +8,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url("../../assets/img/login-wallpaper.jpg");
+    background: darkslategrey;
 }
 
 /* Small wrapper that wraps up login and sign up forms */
@@ -55,35 +55,38 @@
 
 /* Login form styles to override semantic UI's default ones */
 
-input[type="text"], input[type="password"] {
-    background: rgb(85, 78, 85) !important;
-    color: rgba(245, 245, 245, 0.93) !important;
-    font-family: 'Roboto' !important;
+.Login-Container .LoginWrapper .Login-content-wrapper input[type="text"],
+.Login-Container .LoginWrapper .Login-content-wrapper input[type="password"] {
+    background: rgb(85, 78, 85);
+    color: rgba(245, 245, 245, 0.93);
+    font-family: 'Roboto';
     font-weight: 100;
-    border-radius: 0 !important;
-    margin: 0 !important;
+    border-radius: 0;
+    margin: 0;
     width: 30vw;
     font-size: 1.5vw;
 }
 
-input[type="text"]::selection, input[type="password"]::selection {
+.Login-Container .LoginWrapper .Login-content-wrapper input[type="text"]::selection,
+.Login-Container .LoginWrapper .Login-content-wrapper input[type="password"]::selection {
     background: rgba(0, 0, 0, 0.4);
     /* WebKit/Blink Browsers */
     color: whitesmoke;
 }
 
-input[type="text"]::selection, input[type="password"]::selection {
+.Login-Container .LoginWrapper .Login-content-wrapper input[type="text"]::selection,
+.Login-Container .LoginWrapper .Login-content-wrapper input[type="password"]::selection {
     background: rgba(0, 0, 0, 0.4);
     /* Gecko Browsers */
     color: whitesmoke;
 }
 
-i.user.icon {
-    color: rgba(255, 255, 255, 0.79) !important;
+.Login-Container .LoginWrapper .Login-content-wrapper i.user.icon {
+    color: rgba(255, 255, 255, 0.79);
 }
 
-i.lock.icon {
-    color: rgba(255, 255, 255, 0.79) !important;
+.Login-Container .LoginWrapper .Login-content-wrapper i.lock.icon {
+    color: rgba(255, 255, 255, 0.79);
 }
 
 /* Button stylings */
@@ -126,7 +129,7 @@ button.ui.button {
     flex-basis: 40%;
     background: rgb(232, 84, 58);
     color: whitesmoke;
-    padding: 20px;
+    padding: 1vw;
 }
 
 .Right-half-text {
@@ -190,6 +193,7 @@ button.ui.button {
     width: 100%;
     margin: 0 auto;
     padding: 1vw;
+    font-size: 1vw;
     /* height: 23vh; */
     color: rgba(245, 245, 245, 1);
     text-align: center;
@@ -197,3 +201,4 @@ button.ui.button {
     font-weight: 200;
     letter-spacing: 0.02vw;
 }
+
