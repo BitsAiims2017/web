@@ -16,7 +16,6 @@ export default class Login extends React.Component {
 		this.state = { username: "", password: "" };
 	}
 
-
 	// Render function : to render our component
 	render() {
 		const { username, password } = this.state;
@@ -62,9 +61,7 @@ export default class Login extends React.Component {
 							as I said earlier, will post a request to the server. Server will then send a token, which is to be used for any
 							further requests in a session.
 							*/}
-							<button
-								onClick={this.handleSubmit} className="ui button"
-							>
+							<button onClick={this.handleSubmit} className="ui button">
 								LOGIN
 							</button>
 
