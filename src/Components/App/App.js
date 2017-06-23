@@ -12,7 +12,6 @@ export default class App extends React.Component {
 				role: ""
 			}
 		};
-		this.forgetUserInfo = this.forgetUserInfo.bind(this);
 	}
 
     componentWillMount() {
@@ -25,27 +24,11 @@ export default class App extends React.Component {
         });
     }
 
-	
-
-	forgetUserInfo() {
-		this.setState({
-			userInfo: {
-				token: "",
-				username: "",
-				role: ""
-			}
-		});
-		delete window.localStorage["aiims-login-token"];
-		delete window.localStorage["aiims-login-username"];
-		delete window.localStorage["aiims-login-role"];
-		window.location.reload();
-	}
-
 	render() {
 		return (
 			<div className="App">
 				<Content userInfo={this.state.userInfo} />
-				<Sidebar userInfo={this.state.userInfo} forgetUserInfo={this.forgetUserInfo} />
+				<Sidebar userInfo={this.state.userInfo} forgetUserInfo={this.props.forgetUserInfo} />
 			</div>
 		);
 	}
