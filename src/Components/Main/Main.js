@@ -15,6 +15,7 @@ class Main extends Component {
 		};
 		this.rememberUserInfo = this.rememberUserInfo.bind(this);
 		this.forgetUserInfo = this.forgetUserInfo.bind(this);
+		this.createApp = this.createApp.bind(this);
 	}
 
 	// This function will remember the token, username and  when the server gives it for the very first time
@@ -50,9 +51,7 @@ class Main extends Component {
 		window.location.reload();
 	}
 
-	// This function is important for browser to know what to render depending upon what's
-	// in the local storage.
-	componentWillMount() {
+	createApp() {
 		if (!localStorage["aiims-login-token"]) {
 			return <Login userInfo={this.rememberUserInfo} />;
 		} else {
@@ -60,13 +59,15 @@ class Main extends Component {
 		}
 	}
 
+	// This function is important for browser to know what to render depending upon what's
+	// in the local storage.
+	componentWillMount() {
+		createApp();
+	}
+
 	// Render function will render everything. Nothing much is added to it yet,
 	render() {
-		if (!localStorage["aiims-login-token"]) {
-			return <Login userInfo={this.rememberUserInfo} />;
-		} else {
-			return <App userInfo={this.state.userInfo} />;
-		}
+		createApp();
 	}
 }
 
