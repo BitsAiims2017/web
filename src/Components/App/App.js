@@ -1,63 +1,52 @@
-import React, { Component } from "react";
-import Login from "../Login/Login";
-import Logout from "../Logout/Logout";
-import "./App.css";
+import React from "react";
+import Sidebar from "../Sidebar/Sidebar";
+import Content from "../Content/Content";
 
-class App extends Component {
+export default class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { token: "" };
-		this.rememberToken = this.rememberToken.bind(this);
-		this.forgetToken = this.forgetToken.bind(this);
+		this.state = {
+			userInfo: {
+				token: "",
+				username: "",
+				role: ""
+			}
+		};
+		this.forgetUserInfo = this.forgetUserInfo.bind(this);
 	}
 
-	rememberToken(token) {
-		this.setState({
-			token: token
-		});
-		localStorage["aiims-login-token"] = JSON.stringify(token);
-		window.location.reload();
-	}
+    componentWillMount() {
+        this.setState({
+            userInfo: {
+                token: localStorage["aiims-login-token"],
+                username:localStorage["aiims-login-username"],
+                role: localStorage["aiims-login-role"]
+            }
+        });
+    }
 
-	forgetToken() {
+	
+
+	forgetUserInfo() {
 		this.setState({
-			token: ''
+			userInfo: {
+				token: "",
+				username: "",
+				role: ""
+			}
 		});
 		delete window.localStorage["aiims-login-token"];
+		delete window.localStorage["aiims-login-username"];
+		delete window.localStorage["aiims-login-role"];
 		window.location.reload();
-	}
-
-	componentWillMount() {
-		if (!localStorage["aiims-login-token"]) {
-			return (
-				<div className="App">
-					<Login token={this.rememberToken} />
-				</div>
-			);
-		} else {
-			return (
-				<div>
-					<Logout forgetToken={this.forgetToken} />
-				</div>
-			);
-		}
 	}
 
 	render() {
-		if (!localStorage["aiims-login-token"]) {
-			return (
-				<div className="App">
-					<Login token={this.rememberToken} />
-				</div>
-			);
-		} else {
-			return (
-				<div>
-					<Logout forgetToken={this.forgetToken} />
-				</div>
-			);
-		}
+		return (
+			<div className="App">
+				<Content userInfo={this.state.userInfo} />
+				<Sidebar userInfo={this.state.userInfo} forgetUserInfo={this.forgetUserInfo} />
+			</div>
+		);
 	}
 }
-
-export default App;

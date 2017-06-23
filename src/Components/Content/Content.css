@@ -1,0 +1,8 @@
+.Content {
+    width: 85vw;
+    height: 100vh;
+    background: whitesmoke;
+    position: absolute;
+    top: 0vh;
+    left: 15vw;
+}

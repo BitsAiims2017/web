@@ -2,7 +2,6 @@ import React from "react";
 import "../../libs/semantic-ui/semantic.min.css";
 import "./Login.css";
 import { Input } from "semantic-ui-react";
-import { Button } from "semantic-ui-react";
 import $ from "jquery";
 
 export default class Login extends React.Component {
@@ -11,17 +10,17 @@ export default class Login extends React.Component {
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
-		this.handleToken = this.handleToken.bind(this);
+		this.handleUserInfo = this.handleUserInfo.bind(this);
 		this.postUser = this.postUser.bind(this);
 		this.state = { username: "", password: "" };
 	}
-
 
 	// Render function : to render our component
 	render() {
 		const { username, password } = this.state;
 		return (
 			<div className="Login-Container">
+
 				<div className="LoginWrapper">
 					<div className="Login">
 						<div className="Login-content-wrapper">
@@ -62,9 +61,7 @@ export default class Login extends React.Component {
 							as I said earlier, will post a request to the server. Server will then send a token, which is to be used for any
 							further requests in a session.
 							*/}
-							<button
-								onClick={this.handleSubmit} className="ui button"
-							>
+							<button onClick={this.handleSubmit} className="ui button">
 								LOGIN
 							</button>
 
@@ -101,10 +98,6 @@ export default class Login extends React.Component {
 
 	// This function transfers data from the FORM and gets a response object from server.
 	// res.token contains token, which is to be used by the app for further purposes.
-	// TODO:
-	//  => url needs to be changed
-	// => failed cases must output some html for the user to see
-	//
 	postUser = data => {
 		$.ajax({
 			type: "POST",
@@ -113,7 +106,7 @@ export default class Login extends React.Component {
 			datatype: "application/json"
 		})
 			.done(res => {
-				this.handleToken(res.token);
+				this.handleUserInfo(res.token, res.username, res.role);
 			})
 			.fail(err => {
 				var responseBox = $(".Response-Box");
@@ -137,8 +130,8 @@ export default class Login extends React.Component {
 			});
 	};
 
-	handleToken(token) {
-		// This function will send the token recieved from the server to the app component.
-		this.props.token(token);
+	handleUserInfo(token, username, role) {
+		// This function will send the token, username and role which were recieved from the server.. to the Main component.
+		this.props.userInfo(token, username, role);
 	}
 }
