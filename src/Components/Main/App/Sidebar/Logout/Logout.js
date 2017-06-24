@@ -1,6 +1,6 @@
 import React from "react";
 import "./Logout.css";
-import "../../../libs/semantic-ui/components/icon.min.css";
+import "../../../../../libs/semantic-ui/components/icon.min.css";
 
 const Logout = props => {
 	return (
