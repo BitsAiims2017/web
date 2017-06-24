@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Login from "../Login/Login";
-import App from "../App/App";
+import Login from "./Login/Login";
+import App from "./App/App";
 import "./Main.css";
 
 class Main extends Component {
@@ -8,9 +8,9 @@ class Main extends Component {
 		super(props);
 		this.state = {
 			userInfo: {
-				token: "",
-				username: "",
-				role: ""
+				token: localStorage["aiims-login-token"],
+				username: localStorage["aiims-login-username"],
+				role: localStorage["aiims-login-role"]
 			}
 		};
 		this.rememberUserInfo = this.rememberUserInfo.bind(this);

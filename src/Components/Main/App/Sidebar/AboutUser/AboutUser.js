@@ -6,9 +6,7 @@ const AboutUser = props => {
         <div className="AboutUser">
             <div className="Username">
                 <h2>
-                    {props.userInfo.username
-                        .replace(/^"/, "")
-                        .replace(/"$/, "")}
+                    {props.userInfo.username.replace(/^"/, "").replace(/"$/, "")}
                 </h2>
                 <h4>
                     {props.userInfo.role.replace(/^"/, "").replace(/"$/, "")}

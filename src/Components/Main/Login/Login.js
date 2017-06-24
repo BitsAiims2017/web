@@ -1,5 +1,5 @@
 import React from "react";
-import "../../libs/semantic-ui/semantic.min.css";
+import "../../../libs/semantic-ui/semantic.min.css";
 import "./Login.css";
 import { Input } from "semantic-ui-react";
 import $ from "jquery";
