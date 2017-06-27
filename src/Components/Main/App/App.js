@@ -1,14 +1,15 @@
 import React from "react";
-import Sidebar from "./Sidebar/Sidebar";
+import AppBar from "./AppBar/AppBar";
 import Content from "./Content/Content";
 
 const App = props => {
 	return (
 		<div className="App">
 			<Content userInfo={props.userInfo} />
-			<Sidebar
+			<AppBar
 				userInfo={props.userInfo}
 				forgetUserInfo={props.forgetUserInfo}
+				select={props.sendPageIndexToMain}
 			/>
 		</div>
 	);
