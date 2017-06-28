@@ -2,17 +2,35 @@ import React from "react";
 import AppBar from "./AppBar/AppBar";
 import Content from "./Content/Content";
 
-const App = props => {
-	return (
-		<div className="App">
-			<Content userInfo={props.userInfo} />
-			<AppBar
-				userInfo={props.userInfo}
-				forgetUserInfo={props.forgetUserInfo}
-				select={props.sendPageIndexToMain}
-			/>
-		</div>
-	);
-};
+export default class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			clickedIndex: ""
+		};
+		this.handleClickedItemIndex = this.handleClickedItemIndex.bind(this);
+	}
 
-export default App;
+	handleClickedItemIndex(i) {
+		this.setState({
+			clickedIndex: i
+		});
+	}
+
+	render() {
+		return (
+			<div className="App">
+				<Content
+					userInfo={this.props.userInfo}
+					clickedIndex={this.state.clickedIndex}
+					select={this.handleClickedItemIndex}
+				/>
+				<AppBar
+					userInfo={this.props.userInfo}
+					forgetUserInfo={this.props.forgetUserInfo}
+					select={this.handleClickedItemIndex}
+				/>
+			</div>
+		);
+	}
+}

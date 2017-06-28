@@ -1,94 +1,98 @@
 /* AppBar is the container which contains three lists */
+
 .AppBar {
-	width: 100vw;
-	height: 8vh;
-	background: #111;
-	position: fixed;
-	top: 92vh;
-	box-shadow: 0px 0px 5px black;
-	font-family: 'Roboto', sans-serif;
-	display: flex;
-	justify-content: space-between;
-	font-weight: 200;
+    width: 100vw;
+    height: 8vh;
+    background: #111;
+    position: fixed;
+    top: 92vh;
+    box-shadow: 0px 0px 5px black;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 200;
 }
 
+
 /* Information list contains three elements = Menu, Username and role */
+
 ul.user-information-list li {
-	display: inline-block;
-	padding: 0vh 1.5vw;
-	margin: 1vh 0.3vw;
-	height: 6vh;
-	line-height: 6vh;
-	color: whitesmoke;
-	font-size: 1vw;
-	-webkit-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	transition: all 0.3s;
-	background: #000;
+    display: inline-block;
+    padding: 0vh 1.5vw;
+    margin: 1vh 0.3vw;
+    height: 6vh;
+    line-height: 6vh;
+    color: whitesmoke;
+    font-size: 1vw;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    background: #000;
 }
 
 ul.user-information-list li span.username-text,
 ul.user-information-list li span.role-text {
-	color: #fff;
-	text-transform: capitalize;
+    color: #fff;
+    text-transform: capitalize;
 }
 
 ul.user-information-list li span {
-	color: tomato;
+    color: tomato;
 }
 
 ul.user-information-list li:hover {
-	text-shadow: 0px 0 0px rgba(255, 255, 255, 0.4);
+    text-shadow: 0px 0 0px rgba(255, 255, 255, 0.4);
 }
 
 ul.user-information-list {
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
-	display: flex;
-	height: 100%;
-	color: whitesmoke;
-	flex-basis: 30%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    height: 100%;
+    color: whitesmoke;
+    flex-basis: 30%;
 }
 
-ul.user-information-list  li.menu {
-	padding: 0;
-	width: 3vw;
+ul.user-information-list li.menu {
+    padding: 0;
+    width: 3vw;
 }
 
-.AppBar ul.user-information-list  li.menu div button {
-	padding: 0 !important;
-	width: inherit !important;
-	height: 6vh !important;
-	line-height: 6 !important;
+html body .AppBar ul.user-information-list li.menu div button {
+    padding: 0 !important;
+    width: inherit !important;
+    height: 6vh !important;
+    line-height: 6 !important;
 }
+
 
 /* AppBar list contains Dashboard, Inventory, and other stuff */
 
 ul.AppBar-list li {
-	display: inline-block;
-	margin: 0 0.3vw;
-	line-height: 8vh;
-	color: whitesmoke;
-	font-size: 1vw;
-	-webkit-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	transition: all 0.3s;
-	padding: 0;
+    display: inline-block;
+    margin: 0 0.3vw;
+    line-height: 8vh;
+    color: whitesmoke;
+    font-size: 1vw;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    padding: 0;
 }
 
 ul.AppBar-list li span {
-	color: tomato;
+    color: tomato;
 }
 
 ul.AppBar-list {
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
-	width: 100vw;
-	display: flex;
-	flex-basis: 25%;
-	height: 100%;
-	color: whitesmoke;
-	justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    width: 100vw;
+    display: flex;
+    flex-basis: 33%;
+    height: 100%;
+    color: whitesmoke;
+    justify-content: space-between;
 }

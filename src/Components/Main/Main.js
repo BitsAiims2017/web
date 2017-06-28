@@ -15,7 +15,6 @@ class Main extends Component {
 		};
 		this.rememberUserInfo = this.rememberUserInfo.bind(this);
 		this.forgetUserInfo = this.forgetUserInfo.bind(this);
-		this.getPageIndex = this.getPageIndex.bind(this);
 	}
 
 	// This function will remember the token, username and  when the server gives it for the very first time
@@ -49,10 +48,6 @@ class Main extends Component {
 		delete window.localStorage["aiims-login-username"];
 		delete window.localStorage["aiims-login-role"];
 		window.location.reload();
-	}
-
-	getPageIndex(index) {
-		console.log(index);
 	}
 
 	// Render function will render everything. Nothing much is added to it yet,

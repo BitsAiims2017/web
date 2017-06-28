@@ -1,7 +1,99 @@
 .Content {
-    width: 100vw;
-    height: 92vh;
-    background: whitesmoke;
-    position: absolute;
-    top: 0vh;
+	width: 100vw;
+	height: 92vh;
+	background: whitesmoke;
+	position: absolute;
+	top: 0vh;
+	font-family: 'Roboto';
+}
+
+.Content div.box {
+	position: absolute;
+	top: 50vh;
+	left: 50vw;
+	color: white;
+	width: 10vw;
+	height: 10vw;
+	line-height: 10vw;
+	text-align: center;
+	background: #DA2222;
+}
+
+.animate {
+	-webkit-animation: animator 1s;
+	-o-animation: animator 1s;
+	animation: animator 1s;
+}
+
+@-webkit-keyframes animator {
+	0% {
+		opacity: 0;
+		transform: scale3d(0, 0, 0) rotate3d(1, 1, 1, 0deg);
+		background: #DA2222;
+	}
+	100% {
+		transform: scale3d(1, 1, 1) rotate3d(1, 1, 1, 0deg);
+		background: #DA2222;
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes animator {
+	0% {
+		opacity: 0;
+		transform: scale3d(0, 0, 0) rotate3d(1, 1, 1, 0deg);
+		background: #DA2222;
+	}
+
+	100% {
+		transform: scale3d(1, 1, 1) rotate3d(1, 1, 1, 0deg);
+		background: #DA2222;
+		opacity: 1;
+	}
+}
+
+@keyframes animator {
+	0% {
+		opacity: 0;
+		transform: scale3d(0, 0, 0) rotate3d(1, 1, 1, 0deg);
+		background: #DA2222;
+	}
+
+	100% {
+		transform: scale3d(1, 1, 1) rotate3d(1, 1, 1, 0deg);
+		background: #DA2222;
+		opacity: 1;
+	}
+}
+
+
+.appear {
+    animation: appear 1s;
+}
+
+@-webkit-keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
