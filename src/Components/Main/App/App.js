@@ -6,14 +6,22 @@ export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			clickedIndex: ""
+			activePage: "",
+			activeItem: ""
 		};
-		this.handleClickedItemIndex = this.handleClickedItemIndex.bind(this);
+		this.handleActiveItem = this.handleActiveItem.bind(this);
+		this.handleActivePage = this.handleActivePage.bind(this);
 	}
 
-	handleClickedItemIndex(i) {
+	handleActiveItem(i) {
 		this.setState({
-			clickedIndex: i
+			activeItem: i
+		});
+	}
+
+	handleActivePage(i) {
+		this.setState({
+			activePage: i
 		});
 	}
 
@@ -22,13 +30,15 @@ export default class App extends React.Component {
 			<div className="App">
 				<Content
 					userInfo={this.props.userInfo}
-					clickedIndex={this.state.clickedIndex}
-					select={this.handleClickedItemIndex}
+					activePage={this.state.activePage}
+					activeItem={this.state.activeItem}
+					selectPage={this.handleActivePage}
+					selectItem={this.handleActiveItem}
 				/>
 				<AppBar
 					userInfo={this.props.userInfo}
 					forgetUserInfo={this.props.forgetUserInfo}
-					select={this.handleClickedItemIndex}
+					select={this.handleActivePage}
 				/>
 			</div>
 		);

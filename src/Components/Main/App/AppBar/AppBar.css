@@ -13,7 +13,6 @@
     font-weight: 200;
 }
 
-
 /* Information list contains three elements = Menu, Username and role */
 
 ul.user-information-list li {
@@ -65,7 +64,6 @@ html body .AppBar ul.user-information-list li.menu div button {
     height: 6vh !important;
     line-height: 6 !important;
 }
-
 
 /* AppBar list contains Dashboard, Inventory, and other stuff */
 

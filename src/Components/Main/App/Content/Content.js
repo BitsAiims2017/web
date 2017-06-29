@@ -40,13 +40,15 @@ export default class Content extends React.Component {
 				ref="content"
 			>
 				{(() => {
-					switch (this.props.clickedIndex) {
+					switch (this.props.activePage) {
 						case "dashboard":
 							return (
 								<Dashboard
 									userInfo={this.props.userInfo}
-									clickedIndex={this.props.clickedIndex}
-									select={this.props.select}
+									activePage={this.props.activePage}
+									activeItem={this.props.activeItem}
+									selectPage={this.props.selectPage}
+									selectItem={this.props.selectItem}
 								/>
 							);
 							break;
@@ -54,8 +56,10 @@ export default class Content extends React.Component {
 							return (
 								<Patients
 									userInfo={this.props.userInfo}
-									clickedIndex={this.props.clickedIndex}
-									select={this.props.select}
+									activePage={this.props.activePage}
+									activeItem={this.props.activeItem}
+									selectPage={this.props.selectPage}
+									selectItem={this.props.selectItem}
 								/>
 							);
 							break;
@@ -63,8 +67,10 @@ export default class Content extends React.Component {
 							return (
 								<Users
 									userInfo={this.props.userInfo}
-									clickedIndex={this.props.clickedIndex}
-									select={this.props.select}
+									activePage={this.props.activePage}
+									activeItem={this.props.activeItem}
+									selectPage={this.props.selectPage}
+									selectItem={this.props.selectItem}
 								/>
 							);
 							break;
@@ -72,8 +78,10 @@ export default class Content extends React.Component {
 							return (
 								<Orders
 									userInfo={this.props.userInfo}
-									clickedIndex={this.props.clickedIndex}
-									select={this.handleClickedItemIndex}
+									activePage={this.props.activePage}
+									activeItem={this.props.activeItem}
+									selectPage={this.props.selectPage}
+									selectItem={this.props.selectItem}
 								/>
 							);
 							break;
@@ -81,8 +89,10 @@ export default class Content extends React.Component {
 							return (
 								<Inventory
 									userInfo={this.props.userInfo}
-									clickedIndex={this.props.clickedIndex}
-									select={this.handleClickedItemIndex}
+									activePage={this.props.activePage}
+									activeItem={this.props.activeItem}
+									selectPage={this.props.selectPage}
+									selectItem={this.props.selectItem}
 								/>
 							);
 							break;
@@ -90,8 +100,10 @@ export default class Content extends React.Component {
 							return (
 								<Feedback
 									userInfo={this.props.userInfo}
-									clickedIndex={this.props.clickedIndex}
-									select={this.handleClickedItemIndex}
+									activePage={this.props.activePage}
+									activeItem={this.props.activeItem}
+									selectPage={this.props.selectPage}
+									selectItem={this.props.selectItem}
 								/>
 							);
 							break;
@@ -99,8 +111,10 @@ export default class Content extends React.Component {
 							return (
 								<About
 									userInfo={this.props.userInfo}
-									clickedIndex={this.props.clickedIndex}
-									select={this.handleClickedItemIndex}
+									activePage={this.props.activePage}
+									activeItem={this.props.activeItem}
+									selectPage={this.props.selectPage}
+									selectItem={this.props.selectItem}
 								/>
 							);
 							break;
@@ -108,8 +122,10 @@ export default class Content extends React.Component {
 							return (
 								<Shortcuts
 									userInfo={this.props.userInfo}
-									clickedIndex={this.props.clickedIndex}
-									select={this.handleClickedItemIndex}
+									activePage={this.props.activePage}
+									activeItem={this.props.activeItem}
+									selectPage={this.props.selectPage}
+									selectItem={this.props.selectItem}
 								/>
 							);
 							break;
@@ -117,8 +133,10 @@ export default class Content extends React.Component {
 							return (
 								<Dashboard
 									userInfo={this.props.userInfo}
-									clickedIndex={this.props.clickedIndex}
-									select={this.handleClickedItemIndex}
+									activePage={this.props.activePage}
+									activeItem={this.props.activeItem}
+									selectPage={this.props.selectPage}
+									selectItem={this.props.selectItem}
 								/>
 							);
 							break;

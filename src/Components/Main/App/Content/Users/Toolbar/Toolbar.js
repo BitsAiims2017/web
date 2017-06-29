@@ -1,69 +1,72 @@
 import React from "react";
 import "./Toolbar.css";
-import IconMenu from "material-ui/IconMenu";
-import IconButton from "material-ui/IconButton";
-import FontIcon from "material-ui/FontIcon";
-import NavigationExpandMoreIcon from "material-ui/svg-icons/navigation/expand-more";
-import MenuItem from "material-ui/MenuItem";
-import DropDownMenu from "material-ui/DropDownMenu";
-import RaisedButton from "material-ui/RaisedButton";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import darkBaseTheme from "material-ui/styles/baseThemes/darkBaseTheme";
 import getMuiTheme from "material-ui/styles/getMuiTheme";
-import {
-  Toolbar,
-  ToolbarGroup,
-  ToolbarSeparator,
-  ToolbarTitle
-} from "material-ui/Toolbar";
+// Importing Icons
+import IconAdd from "material-ui/svg-icons/content/add";
+import IconCreate from "material-ui/svg-icons/content/create";
+import IconDeleteSweep from "material-ui/svg-icons/content/delete-sweep";
+import IconPeople from "material-ui/svg-icons/social/people";
+import IconSearch from "material-ui/svg-icons/action/search";
 
-export default class ToolbarExamplesSimple extends React.Component {
+// ===========================================
+
+// Defining Icons
+const IconsStyles = {
+  width: "2.8vh",
+  height: "2.8vh",
+  color: "whitesmoke",
+  lineHeight: "89px"
+};
+const addUserIcon = <IconAdd style={IconsStyles} />;
+const editUserIcon = <IconCreate style={IconsStyles} />;
+const deleteUserIcon = <IconDeleteSweep style={IconsStyles} />;
+const allUsersIcon = <IconPeople style={IconsStyles} />;
+const findUserIcon = <IconSearch style={IconsStyles} />;
+
+export default class Toolbar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: 3
-    };
+    this.handleMouseOver = this.handleMouseOver.bind(this);
   }
 
-  handleChange = (event, index, value) => this.setState({ value });
+  handleClick(i, e) {
+    this.props.selectItem(i);
+  }
+
+  handleMouseOver() {}
 
   render() {
     return (
-      <div className="Toolbar">
-        <MuiThemeProvider>
-          <Toolbar className="Toolbar">
-            <ToolbarGroup firstChild={true}>
-              <DropDownMenu
-                value={this.state.value}
-                onChange={this.handleChange}
+      <div className="Toolbar-Container">
+        <div className="Toolbar">
+          <MuiThemeProvider>
+            <ul className="user-operations">
+              <li
+                onClick={this.handleClick.bind(this, "allusers")}
+                onMouseOver={this.handleMouseOver}
+                key="allusers"
               >
-                <MenuItem value={1} primaryText="All Broadcasts" />
-                <MenuItem value={2} primaryText="All Voice" />
-                <MenuItem value={3} primaryText="All Text" />
-                <MenuItem value={4} primaryText="Complete Voice" />
-                <MenuItem value={5} primaryText="Complete Text" />
-                <MenuItem value={6} primaryText="Active Voice" />
-                <MenuItem value={7} primaryText="Active Text" />
-              </DropDownMenu>
-            </ToolbarGroup>
-            <ToolbarGroup>
-              <ToolbarTitle text="Options" />
-              <FontIcon className="muidocs-icon-custom-sort" />
-              <ToolbarSeparator />
-              <RaisedButton label="Create Broadcast" primary={true} />
-              <IconMenu
-                iconButtonElement={
-                  <IconButton touch={true}>
-                    <NavigationExpandMoreIcon />
-                  </IconButton>
-                }
+                {allUsersIcon}
+              </li>
+              <li
+                onClick={this.handleClick.bind(this, "findusers")}
+                onMouseOver={this.handleMouseOver}
+                key="finduser"
               >
-                <MenuItem primaryText="Download" />
-                <MenuItem primaryText="More Info" />
-              </IconMenu>
-            </ToolbarGroup>
-          </Toolbar>
-        </MuiThemeProvider>
+                {findUserIcon}
+              </li>
+              <li
+                onClick={this.handleClick.bind(this, "adduser")}
+                onMouseOver={this.handleMouseOver}
+                key="adduser"
+              >
+                {addUserIcon}
+              </li>
+            </ul>
+          </MuiThemeProvider>
+        </div>
       </div>
     );
   }
