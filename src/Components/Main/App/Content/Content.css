@@ -3,8 +3,9 @@
 	height: 92vh;
 	background: whitesmoke;
 	position: absolute;
-	top: 0vh;
+	top: 8vh;
 	font-family: 'Roboto';
+	overflow: hidden;
 }
 
 .Content div.box {

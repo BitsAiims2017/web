@@ -1,17 +1,17 @@
 import React from "react";
-import "./AddNewUser.css";
+import "./AddNewPatient.css";
 import { Icon } from "semantic-ui-react";
 import { Form } from "semantic-ui-react";
 import $ from "jquery";
 import { Checkbox } from "office-ui-fabric-react/lib/Checkbox";
 
 const IconStyles = {
-    fontSize: "3vw",
-    position: "relative",
-    padding: "0px",
-    margin: "0px",
-    top: "3vh",
-    color: "rgba(51, 10, 88, 0.79)"
+	fontSize: "3vw",
+	position: "relative",
+	padding: "0px",
+	margin: "0px",
+	top: "3vh",
+	color: "white"
 };
 
 const options = [
@@ -19,7 +19,7 @@ const options = [
 	{ key: "viewer", text: "Viewer", value: "viewer" }
 ];
 
-export default class AddNewUser extends React.Component {
+export default class AddNewPatient extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -38,14 +38,14 @@ export default class AddNewUser extends React.Component {
 		let name, username, password, role;
 		let check = this.state.check;
 		return (
-			<div className="AddNewUser">
+			<div className="AddNewPatient">
 				<div className="response-box" />
-				<div className="AddNewUser-Form">
+				<div className="AddNewPatient-Form">
 					<div className="IconPlace" style={{ textAlign: "center" }}>
 						<Icon name="add user" style={IconStyles} />
 					</div>
 					<br />
-					<hr style={{ borderColor: "rgba(156, 39, 176, 0.34)" }} />
+					<hr style={{ borderColor: "rgba(0, 0, 0, 0.2)" }} />
 					<br />
 					<div className="Form">
 						<h3 className="Form-Heading">Add User</h3>

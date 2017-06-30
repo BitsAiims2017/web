@@ -49,6 +49,8 @@ export default class Content extends React.Component {
 									activeItem={this.props.activeItem}
 									selectPage={this.props.selectPage}
 									selectItem={this.props.selectItem}
+									getRequest={this.props.getRequest}
+									postRequest={this.props.postRequest}
 								/>
 							);
 							break;
@@ -60,6 +62,8 @@ export default class Content extends React.Component {
 									activeItem={this.props.activeItem}
 									selectPage={this.props.selectPage}
 									selectItem={this.props.selectItem}
+									getRequest={this.props.getRequest}
+									postRequest={this.props.postRequest}
 								/>
 							);
 							break;
@@ -71,6 +75,8 @@ export default class Content extends React.Component {
 									activeItem={this.props.activeItem}
 									selectPage={this.props.selectPage}
 									selectItem={this.props.selectItem}
+									getRequest={this.props.getRequest}
+									postRequest={this.props.postRequest}
 								/>
 							);
 							break;
@@ -82,6 +88,8 @@ export default class Content extends React.Component {
 									activeItem={this.props.activeItem}
 									selectPage={this.props.selectPage}
 									selectItem={this.props.selectItem}
+									getRequest={this.props.getRequest}
+									postRequest={this.props.postRequest}
 								/>
 							);
 							break;
@@ -93,6 +101,8 @@ export default class Content extends React.Component {
 									activeItem={this.props.activeItem}
 									selectPage={this.props.selectPage}
 									selectItem={this.props.selectItem}
+									getRequest={this.props.getRequest}
+									postRequest={this.props.postRequest}
 								/>
 							);
 							break;
@@ -104,6 +114,8 @@ export default class Content extends React.Component {
 									activeItem={this.props.activeItem}
 									selectPage={this.props.selectPage}
 									selectItem={this.props.selectItem}
+									getRequest={this.props.getRequest}
+									postRequest={this.props.postRequest}
 								/>
 							);
 							break;
@@ -115,6 +127,8 @@ export default class Content extends React.Component {
 									activeItem={this.props.activeItem}
 									selectPage={this.props.selectPage}
 									selectItem={this.props.selectItem}
+									getRequest={this.props.getRequest}
+									postRequest={this.props.postRequest}
 								/>
 							);
 							break;
@@ -126,6 +140,8 @@ export default class Content extends React.Component {
 									activeItem={this.props.activeItem}
 									selectPage={this.props.selectPage}
 									selectItem={this.props.selectItem}
+									getRequest={this.props.getRequest}
+									postRequest={this.props.postRequest}
 								/>
 							);
 							break;
@@ -137,6 +153,8 @@ export default class Content extends React.Component {
 									activeItem={this.props.activeItem}
 									selectPage={this.props.selectPage}
 									selectItem={this.props.selectItem}
+									getRequest={this.props.getRequest}
+									postRequest={this.props.postRequest}
 								/>
 							);
 							break;

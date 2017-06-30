@@ -1,0 +1,232 @@
+.AddNewPatient-Form {
+	background: rgba(85, 1, 121, 0.75);
+	width: 18vw;
+	height: 51vh;
+	position: absolute;
+	top: 3vh;
+	left: 2vw;
+	padding: 1vw;
+	-webkit-animation: comeIn 0.3s ease-out;
+	animation: comeIn 0.3s ease-out;
+}
+
+h3.Form-Heading {
+	margin: 0 1vw 2vh 0;
+	font-size: 1vw;
+	font-family: 'Roboto', sans-serif;
+	color: rgba(255, 255, 255, 0.6);
+	font-weight: 200;
+	text-align: center;
+}
+
+.AddNewPatient-Form .Form button.ui.button {
+	background: rgb(55, 18, 72);
+	border-radius: 0;
+	font-size: 1.4vw;
+	margin-top: 2.1vh;
+	color: rgba(245, 245, 245, 0.7);
+	font-family: 'Roboto';
+	font-weight: 500;
+	-webkit-transition: all 0.1s;
+	-o-transition: all 0.1s;
+	border: 1px solid #9f00ff;
+	transition: all 0.1s;
+}
+
+.AddNewPatient-Form .ui .form {
+	height: 37vh;
+	position: relative;
+	top: 3vh;
+}
+
+.AddNewPatient-Form .ui.form .fields {
+	display: flex;
+	flex-direction: column;
+}
+
+.AddNewPatient-Form .Form .ui.form .field .ui.input input,
+.ui.form .fields .field .ui.input input {
+	width: auto;
+	height: 4.7vh;
+	margin: 0.6vh;
+	background: rgba(0, 0, 0, 0.17);
+	color: whitesmoke;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 200;
+	font-size: 0.9vw;
+	border-radius: 0;
+}
+
+.AddNewPatient-Form .Form .ui.form .field:last-child,
+.ui.form .fields:last-child .field {
+	margin-bottom: 0;
+	text-align: center;
+}
+
+.AddNewPatient-Form button.ui.button,
+button.ui.button:active,
+button.ui.button:focus {
+	background-color: rgba(144, 17, 42, 0.4);
+	color: rgba(255, 255, 255, .9);
+}
+
+.AddNewPatient-Form button.ui.button,
+button.ui.button:active,
+button.ui.button:hover {
+	background-color: rgba(159, 1, 110, 0.6);
+	color: rgba(255, 255, 255, .9);
+}
+
+.AddNewPatient-Form .ui.form input:not([type]):focus,
+.AddNewPatient-Form .ui.form input[type=text]:focus,
+.AddNewPatient-Form .ui.form input[type=email]:focus,
+.AddNewPatient-Form .ui.form input[type=search]:focus,
+.AddNewPatient-Form .ui.form input[type=password]:focus,
+.AddNewPatient-Form .ui.form input[type=date]:focus,
+.AddNewPatient-Form .ui.form input[type=datetime-local]:focus,
+.AddNewPatient-Form .ui.form input[type=tel]:focus,
+.AddNewPatient-Form .ui.form input[type=time]:focus,
+.AddNewPatient-Form .ui.form input[type=file]:focus,
+.AddNewPatient-Form .ui.form input[type=url]:focus,
+.AddNewPatient-Form .ui.form input[type=number]:focus {
+	border: 1px solid #c493ea;
+}
+
+.AddNewPatient-Form .ui.form input:not([type])::selection,
+.AddNewPatient-Form .ui.form input[type=text]::selection,
+.AddNewPatient-Form .ui.form input[type=email]::selection,
+.AddNewPatient-Form .ui.form input[type=search]::selection,
+.AddNewPatient-Form .ui.form input[type=password]::selection,
+.AddNewPatient-Form .ui.form input[type=date]::selection,
+.AddNewPatient-Form .ui.form input[type=datetime-local]::selection,
+.AddNewPatient-Form .ui.form input[type=tel]::selection,
+.AddNewPatient-Form .ui.form input[type=time]::selection,
+.AddNewPatient-Form .ui.form input[type=file]::selection,
+.AddNewPatient-Form .ui.form input[type=url]::selection,
+.AddNewPatient-Form .ui.form input[type=number]::selection {
+	background: rgba(0, 0, 0, 0.8);
+	color: whitesmoke;
+}
+
+/* Styling checkboxes */
+
+.AddNewPatient-Form .Checkboxes {
+	display: flex;
+	flex-direction: row;
+	margin-top: 1vh;
+}
+
+.AddNewPatient-Form .root_79db315f {
+	box-sizing: border-box;
+	font-family: 'Roboto';
+	min-height: 36px;
+	position: relative;
+	flex-basis: 50%;
+	text-align: center;
+}
+
+.AddNewPatient-Form .textLabel_79db315f {
+	color: rgba(255, 255, 255, 0.69);
+	font-size: 0.9vw;
+	font-weight: 200;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.AddNewPatient-Form .root_79db315f:hover .textLabel_79db315f {
+	color: rgba(255, 255, 255, 0.69);
+}
+
+@-webkit-keyframes comeIn {
+	from {
+		opacity: 0;
+		top: 5vh;
+	}
+	to {
+		opacity: 1;
+		top: 3vh;
+	}
+}
+
+@-moz-keyframes comeIn {
+	from {
+		opacity: 0;
+		top: 5vh;
+	}
+	to {
+		opacity: 1;
+		top: 3vh;
+	}
+}
+
+@keyframes comeIn {
+	from {
+		opacity: 0;
+		top: 5vh;
+	}
+	to {
+		opacity: 1;
+		top: 3vh;
+	}
+}
+
+/* Styling response box */
+
+.response-box {
+	width: 18vw;
+	height: 20vh;
+	position: absolute;
+	top: 54vh;
+	left: 2vw;
+	opacity: 0;
+}
+
+.response-success {
+	background: rgba(0, 74, 93, 0.75);
+	border-top: 1px solid rgba(255, 255, 255, 0.35);
+	-webkit-animation: responseComeIn 0.3s ease-out;
+	animation: responseComeIn 0.3s ease-out;
+	opacity: 1;
+}
+
+.response-failed {
+	background: rgba(140, 24, 24, 0.7);
+	border-top: 1px solid rgba(255, 255, 255, 0.19);
+	-webkit-animation: responseComeIn 0.3s ease-out;
+	animation: responseComeIn 0.3s ease-out;
+	opacity: 1;
+}
+
+@-webkit-keyframes responseComeIn {
+	from {
+		opacity: 0;
+		top: 57vh;
+	}
+	to {
+		opacity: 1;
+		top: 54vh;
+	}
+}
+
+@-moz-keyframes responseComeIn {
+	from {
+		opacity: 0;
+		top: 57vh;
+	}
+	to {
+		opacity: 1;
+		top: 54vh;
+	}
+}
+
+@keyframes responseComeIn {
+	from {
+		opacity: 0;
+		top: 57vh;
+	}
+	to {
+		opacity: 1;
+		top: 54vh;
+	}
+}

@@ -1,9 +1,7 @@
 .AddNewUser-Form {
-	background: white;
-	-webkit-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
-	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
-	width: 18vw;
-	height: 51vh;
+	background: rgba(85, 1, 121, 0.75);
+	width: 20vw;
+	height: 59vh;
 	position: absolute;
 	top: 3vh;
 	left: 2vw;
@@ -14,9 +12,9 @@
 
 h3.Form-Heading {
 	margin: 0 1vw 2vh 0;
-	font-size: 1vw;
+	font-size: 1.5vw;
 	font-family: 'Roboto', sans-serif;
-	color: rgb(106, 0, 111);
+	color: rgba(255, 255, 255, 0.6);
 	font-weight: 200;
 	text-align: center;
 }
@@ -32,7 +30,6 @@ h3.Form-Heading {
 	-webkit-transition: all 0.1s;
 	-o-transition: all 0.1s;
 	border: 1px solid #9f00ff;
-	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.44);
 	transition: all 0.1s;
 }
 
@@ -50,14 +47,12 @@ h3.Form-Heading {
 .AddNewUser-Form .Form .ui.form .field .ui.input input,
 .ui.form .fields .field .ui.input input {
 	width: auto;
-	height: 4.7vh;
+	height: 5%;
 	margin: 0.6vh;
-	background: rgba(0, 0, 0, 0.17);
-	color: black;
+	background: rgba(0, 0, 0, 0.47);
+	color: whitesmoke;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 200;
-	font-size: 0.9vw;
-	border-radius: 0;
 }
 
 .AddNewUser-Form .Form .ui.form .field:last-child,
@@ -110,20 +105,6 @@ button.ui.button:hover {
 	background: rgba(0, 0, 0, 0.8);
 	color: whitesmoke;
 }
-.AddNewUser-Form .ui.form input:not([type])::placeholder,
-.AddNewUser-Form .ui.form input[type=text]::placeholder,
-.AddNewUser-Form .ui.form input[type=email]::placeholder,
-.AddNewUser-Form .ui.form input[type=search]::placeholder,
-.AddNewUser-Form .ui.form input[type=password]::placeholder,
-.AddNewUser-Form .ui.form input[type=date]::placeholder,
-.AddNewUser-Form .ui.form input[type=datetime-local]::placeholder,
-.AddNewUser-Form .ui.form input[type=tel]::placeholder,
-.AddNewUser-Form .ui.form input[type=time]::placeholder,
-.AddNewUser-Form .ui.form input[type=file]::placeholder,
-.AddNewUser-Form .ui.form input[type=url]::placeholder,
-.AddNewUser-Form .ui.form input[type=number]::placeholder {
-	color:rgba(75, 2, 64, 0.8);
-}
 
 /* Styling checkboxes */
 
@@ -143,8 +124,8 @@ button.ui.button:hover {
 }
 
 .AddNewUser-Form .textLabel_79db315f {
-	color: #44094e;
-	font-size: 0.9vw;
+	color: rgba(255, 255, 255, 0.69);
+	font-size: 1vw;
 	font-weight: 200;
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
@@ -152,13 +133,15 @@ button.ui.button:hover {
 }
 
 .AddNewUser-Form .root_79db315f:hover .textLabel_79db315f {
-	color: #44094e;
+	color: rgba(255, 255, 255, 0.69);
+	font-size: 1vw;
+	font-weight: 200;
 }
 
 @-webkit-keyframes comeIn {
 	from {
 		opacity: 0;
-		top: 7vh;
+		top: 5vh;
 	}
 	to {
 		opacity: 1;
@@ -169,7 +152,7 @@ button.ui.button:hover {
 @-moz-keyframes comeIn {
 	from {
 		opacity: 0;
-		top: 7vh;
+		top: 5vh;
 	}
 	to {
 		opacity: 1;
@@ -180,7 +163,7 @@ button.ui.button:hover {
 @keyframes comeIn {
 	from {
 		opacity: 0;
-		top: 7vh;
+		top: 5vh;
 	}
 	to {
 		opacity: 1;
@@ -191,16 +174,16 @@ button.ui.button:hover {
 /* Styling response box */
 
 .response-box {
-	width: 18vw;
+	width: 20vw;
 	height: 20vh;
 	position: absolute;
-	top: 54vh;
+	top: 62vh;
 	left: 2vw;
 	opacity: 0;
 }
 
 .response-success {
-	background: rgba(21, 93, 0, 0.75);
+	background: rgba(0, 74, 93, 0.75);
 	border-top: 1px solid rgba(255, 255, 255, 0.35);
 	-webkit-animation: responseComeIn 0.3s ease-out;
 	animation: responseComeIn 0.3s ease-out;
@@ -215,35 +198,36 @@ button.ui.button:hover {
 	opacity: 1;
 }
 
+
 @-webkit-keyframes responseComeIn {
 	from {
 		opacity: 0;
-		top: 57vh;
+		top: 65vh;
 	}
 	to {
 		opacity: 1;
-		top: 54vh;
+		top: 62vh;
 	}
 }
 
 @-moz-keyframes responseComeIn {
 	from {
 		opacity: 0;
-		top: 57vh;
+		top: 65vh;
 	}
 	to {
 		opacity: 1;
-		top: 54vh;
+		top: 62vh;
 	}
 }
 
 @keyframes responseComeIn {
 	from {
 		opacity: 0;
-		top: 57vh;
+		top: 65vh;
 	}
 	to {
 		opacity: 1;
-		top: 54vh;
+		top: 62vh;
 	}
 }
