@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Login from "./Login/Login";
 import App from "./App/App";
 import "./Main.css";
+import $ from "jquery";
 
 class Main extends Component {
 	constructor(props) {
@@ -15,6 +16,8 @@ class Main extends Component {
 		};
 		this.rememberUserInfo = this.rememberUserInfo.bind(this);
 		this.forgetUserInfo = this.forgetUserInfo.bind(this);
+		this.postRequest = this.postRequest.bind(this);
+		this.getRequest = this.getRequest.bind(this);
 	}
 
 	// This function will remember the token, username and  when the server gives it for the very first time
@@ -50,6 +53,39 @@ class Main extends Component {
 		window.location.reload();
 	}
 
+	postRequest(data, url) {
+		$.ajax({
+			type: "POST",
+			url: url,
+			headers: data,
+			datatype: "application/json",
+			data: data
+		})
+			.done(res => {
+				return res;
+			})
+			.fail(err => {
+				return err;
+			});
+	}
+
+	getRequest(url) {
+		var token = localStorage["aiims-login-token"]
+			.replace(/^"/, "")
+			.replace(/"$/, "");
+		$.ajax({
+			url: url,
+			type: "GET",
+			datatype: "application/json",
+			data: { token: token }
+		})
+			.done(res => {
+				return res;
+			})
+			.fail(err => {
+				return err;
+			});
+	}
 	// Render function will render everything. Nothing much is added to it yet,
 	render() {
 		if (!localStorage["aiims-login-token"]) {
@@ -59,6 +95,9 @@ class Main extends Component {
 				<App
 					userInfo={this.state.userInfo}
 					forgetUserInfo={this.forgetUserInfo}
+					sendPageIndexToMain={this.getPageIndex}
+					getRequest={this.getRequest}
+					postRequest={this.postRequest}
 				/>
 			);
 		}

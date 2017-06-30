@@ -8,7 +8,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: darkslategrey;
+    background: linear-gradient(120deg, rgb(29, 181, 130), #ff7600);
 }
 
 /* Small wrapper that wraps up login and sign up forms */
@@ -30,7 +30,7 @@
 .Login {
     flex-basis: 60%;
     border-right: none;
-    background: rgb(46, 40, 44);
+    background: rgba(0, 0, 0, 0.81);
     color: rgb(218, 215, 216);
 }
 
@@ -127,7 +127,7 @@ button.ui.button {
 
 .Right-half {
     flex-basis: 40%;
-    background: rgb(232, 84, 58);
+    background: rgba(232, 28, 28, 0.8);
     color: whitesmoke;
     padding: 1vw;
 }
@@ -201,4 +201,3 @@ button.ui.button {
     font-weight: 200;
     letter-spacing: 0.02vw;
 }
-
