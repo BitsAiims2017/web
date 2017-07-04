@@ -53,7 +53,7 @@ class Main extends Component {
 		window.location.reload();
 	}
 
-	postRequest(data, url) {
+	postRequest(data, url, done) {
 		$.ajax({
 			type: "POST",
 			url: url,
@@ -62,28 +62,27 @@ class Main extends Component {
 			data: data
 		})
 			.done(res => {
-				return res;
+			  done(res);
 			})
 			.fail(err => {
-				return err;
+			  done(err);
 			});
 	}
 
-	getRequest(url) {
-		var token = localStorage["aiims-login-token"]
-			.replace(/^"/, "")
-			.replace(/"$/, "");
+	getRequest(url, done) {
+      var token = localStorage["aiims-login-token"]
+      .replace(/^"/, "").replace(/"$/, "");
 		$.ajax({
-			url: url,
+      url: url,
 			type: "GET",
 			datatype: "application/json",
-			data: { token: token }
+      data: { token: token }
 		})
 			.done(res => {
-				return res;
+			  done(res);
 			})
 			.fail(err => {
-				return err;
+			  done(err);
 			});
 	}
 	// Render function will render everything. Nothing much is added to it yet,
