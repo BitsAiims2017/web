@@ -53,7 +53,7 @@ class Main extends Component {
 		window.location.reload();
 	}
 
-	postRequest(data, url) {
+	postRequest(data, url, done) {
 		$.ajax({
 			type: "POST",
 			url: url,
@@ -62,10 +62,10 @@ class Main extends Component {
 			data: data
 		})
 			.done(res => {
-				return res;
+			  done(res);
 			})
 			.fail(err => {
-				return err;
+			  done(err);
 			});
 	}
 
