@@ -111,22 +111,26 @@ export default class Login extends React.Component {
 			.fail(err => {
 				var responseBox = $(".Response-Box");
 				responseBox.addClass("Response-active");
+				let responseMessage;
+
 				if (err.status === 404) {
 					// If the username is wrong
-					let responseMessage = `Username you just entered is incorrect. Try again please.`;
-					responseBox.children().text(responseMessage).fadeIn(300);
+					responseMessage = `Username you just entered is incorrect. Try again please.`;
 				}
-
-				if (err.status === 401) {
+        else if (err.status === 401) {
 					// If username is correct, but password is wrong.
-					let responseMessage = `Dude, Recheck your password and try again.`;
-					responseBox.children().text(responseMessage).fadeIn(300);
+					responseMessage = `Dude, Recheck your password and try again.`;
 				}
-				if (err.status === 400) {
+        else if (err.status === 400) {
 					// If empty form is submitted
-					let responseMessage = `Enter your username & password.`;
-					responseBox.children().text(responseMessage).fadeIn(300);
+					responseMessage = `Enter your username & password.`;
 				}
+        else {
+					// If no response matches
+					responseMessage = `Internal error`;
+        }
+
+        responseBox.children().text(responseMessage).fadeIn(300);
 			});
 	};
 
