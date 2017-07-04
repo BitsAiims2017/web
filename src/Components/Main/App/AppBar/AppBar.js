@@ -88,20 +88,6 @@ export default class AppBar extends React.Component {
 	render() {
 		return (
 			<div className="AppBar">
-				<ul className="user-information-list">
-					<li>
-						<span>Username : </span>
-						<span className="username-text">
-							{this.props.userInfo.username.replace(/^"/, "").replace(/"$/, "")}
-						</span>
-					</li>
-					<li>
-						<span>Role : </span>
-						<span className="role-text">
-							{this.props.userInfo.role.replace(/^"/, "").replace(/"$/, "")}
-						</span>
-					</li>
-				</ul>
 				<MuiThemeProvider>
 					<ul className="AppBar-list">
 						<li>
@@ -263,6 +249,60 @@ export default class AppBar extends React.Component {
             </li>
 					</ul>
 				</MuiThemeProvider>
+				<ul className="user-information-list">
+					<li>
+						<span>Username : </span>
+						<span className="username-text">
+							{this.props.userInfo.username.replace(/^"/, "").replace(/"$/, "")}
+						</span>
+					</li>
+					<li>
+						<span>Role : </span>
+						<span className="role-text">
+							{this.props.userInfo.role.replace(/^"/, "").replace(/"$/, "")}
+						</span>
+					</li>
+					<li className="menu">
+						<MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+							<IconMenu
+								iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+								anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+								targetOrigin={{ horizontal: "right", vertical: "top" }}
+								style={menuStyles}
+								iconStyle={{
+									color: "white",
+									padding: "0",
+									lineHeight: "6vh",
+									width: "1.5vw",
+									height: "1.5vw"
+								}}
+								desktop={true}
+								listStyle={{ background: "#111" }}
+							>
+
+								<MenuItem
+									primaryText="Feedback"
+									onClick={this.handleClick.bind(this, "feedback")}
+									key="feedback"
+								/>
+								<MenuItem
+									primaryText="About"
+									onClick={this.handleClick.bind(this, "about")}
+									key="about"
+								/>
+								<MenuItem
+									primaryText="Shortcuts"
+									onClick={this.handleClick.bind(this, "shortcuts")}
+									key="shortcuts"
+								/>
+								<MenuItem
+									primaryText="Log out"
+									onClick={this.props.forgetUserInfo}
+								/>
+							</IconMenu>
+						</MuiThemeProvider>
+					</li>
+				</ul>
 			</div>
 		);
 	}

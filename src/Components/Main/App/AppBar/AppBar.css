@@ -50,7 +50,6 @@ ul.user-information-list {
     display: flex;
     height: 100%;
     color: whitesmoke;
-    flex-basis: 30%;
 }
 
 ul.user-information-list li.menu {
