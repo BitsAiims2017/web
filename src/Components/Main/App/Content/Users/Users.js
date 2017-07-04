@@ -17,9 +17,9 @@ export default class Users extends React.Component {
 	}
 
 	getAllUserData() {
-		let response = this.props.getRequest("http://localhost:2000/users/");
-		console.log(response);
-		return response;
+		this.props.getRequest("http://localhost:2000/users/", (res) => {
+		  return res;
+		});
 	}
 
 	componentDidMount() {

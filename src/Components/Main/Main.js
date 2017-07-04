@@ -69,21 +69,20 @@ class Main extends Component {
 			});
 	}
 
-	getRequest(url) {
-		var token = localStorage["aiims-login-token"]
-			.replace(/^"/, "")
-			.replace(/"$/, "");
+	getRequest(url, done) {
+      var token = localStorage["aiims-login-token"]
+      .replace(/^"/, "").replace(/"$/, "");
 		$.ajax({
-			url: url,
+      url: url,
 			type: "GET",
 			datatype: "application/json",
-			data: { token: token }
+      data: { token: token }
 		})
 			.done(res => {
-				return res;
+			  done(res);
 			})
 			.fail(err => {
-				return err;
+			  done(err);
 			});
 	}
 	// Render function will render everything. Nothing much is added to it yet,
