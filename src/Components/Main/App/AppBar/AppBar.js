@@ -89,46 +89,6 @@ export default class AppBar extends React.Component {
 		return (
 			<div className="AppBar">
 				<ul className="user-information-list">
-					<li className="menu">
-						<MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-							<IconMenu
-								iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-								anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
-								targetOrigin={{ horizontal: "left", vertical: "bottom" }}
-								style={menuStyles}
-								iconStyle={{
-									color: "white",
-									padding: "0",
-									lineHeight: "6vh",
-									width: "1.5vw",
-									height: "1.5vw"
-								}}
-								desktop={true}
-								listStyle={{ background: "#111" }}
-							>
-
-								<MenuItem
-									primaryText="Feedback"
-									onClick={this.handleClick.bind(this, "feedback")}
-									key="feedback"
-								/>
-								<MenuItem
-									primaryText="About"
-									onClick={this.handleClick.bind(this, "about")}
-									key="about"
-								/>
-								<MenuItem
-									primaryText="Shortcuts"
-									onClick={this.handleClick.bind(this, "shortcuts")}
-									key="shortcuts"
-								/>
-								<MenuItem
-									primaryText="Log out"
-									onClick={this.props.forgetUserInfo}
-								/>
-							</IconMenu>
-						</MuiThemeProvider>
-					</li>
 					<li>
 						<span>Username : </span>
 						<span className="username-text">
@@ -261,6 +221,46 @@ export default class AppBar extends React.Component {
 							/>
 						</li>
 						{this.renderUserTab()}
+            <li className="menu">
+              <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+                <IconMenu
+                  iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+                  anchorOrigin={{ horizontal: "right", vertical: "top" }}
+                  targetOrigin={{ horizontal: "right", vertical: "top" }}
+                  style={menuStyles}
+                  iconStyle={{
+                    color: "white",
+                    padding: "0",
+                    lineHeight: "6vh",
+                    width: "1.5vw",
+                    height: "1.5vw"
+                  }}
+                  desktop={true}
+                  listStyle={{ background: "#111" }}
+                >
+
+                  <MenuItem
+                    primaryText="Feedback"
+                    onClick={this.handleClick.bind(this, "feedback")}
+                    key="feedback"
+                  />
+                  <MenuItem
+                    primaryText="About"
+                    onClick={this.handleClick.bind(this, "about")}
+                    key="about"
+                  />
+                  <MenuItem
+                    primaryText="Shortcuts"
+                    onClick={this.handleClick.bind(this, "shortcuts")}
+                    key="shortcuts"
+                  />
+                  <MenuItem
+                    primaryText="Log out"
+                    onClick={this.props.forgetUserInfo}
+                  />
+                </IconMenu>
+              </MuiThemeProvider>
+            </li>
 					</ul>
 				</MuiThemeProvider>
 			</div>
