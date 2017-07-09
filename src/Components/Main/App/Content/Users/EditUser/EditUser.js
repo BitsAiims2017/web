@@ -196,86 +196,89 @@ export default class EditUser extends React.Component {
 
 		// 	If the user presses DELETE
 		if (this.props.activeItem === "delete") {
+			this.props.deleteRequest(
+				`http://localhost:2000/users/${username}`,
+				res => {
+					var responseBox = $(".EditUser .response-box");
 
-			this.props.deleteRequest(`http://localhost:2000/users/${username}`,  (res) => {
-
-				var responseBox = $(".EditUser .response-box");
-
-				if ( res.status === 200 ) {
-					if (responseBox.hasClass("response-failed")) {
-						responseBox.removeClass("response-failed");
+					if (res.status === 200) {
+						if (responseBox.hasClass("response-failed")) {
+							responseBox.removeClass("response-failed");
 						}
-					responseBox.addClass("response-success");
-				} else {
-					if (responseBox.hasClass("response-success")) {
-						responseBox.removeClass("response-success");
-					}
-					responseBox.addClass("response-failed");
-					if (res.status === 400) {
-					// Incomplete / Wrong Parameters
-						let responseMessage = `Incomplete/Wrong Parameters`;
-						console.log(responseMessage);
-						console.log(res);
-					}
-					if (res.status === 401) {
-					// No permission
-						let responseMessage = `The request is not authorized`;
-						console.log(responseMessage);
-					}
-					if (res.status === 409) {
-					// If username is correct, but password is wrong.
-						let responseMessage = `User already exists`;
-						console.log(responseMessage);
-					}
-					if (res.status === 500) {
-					// If empty form is submitted
-						let responseMessage = `Internal Error`;
-						console.log(responseMessage);
+						responseBox.addClass("response-success");
+					} else {
+						if (responseBox.hasClass("response-success")) {
+							responseBox.removeClass("response-success");
+						}
+						responseBox.addClass("response-failed");
+						if (res.status === 400) {
+							// Incomplete / Wrong Parameters
+							let responseMessage = `Incomplete/Wrong Parameters`;
+							console.log(responseMessage);
+							console.log(res);
+						}
+						if (res.status === 401) {
+							// No permission
+							let responseMessage = `The request is not authorized`;
+							console.log(responseMessage);
+						}
+						if (res.status === 409) {
+							// If username is correct, but password is wrong.
+							let responseMessage = `User already exists`;
+							console.log(responseMessage);
+						}
+						if (res.status === 500) {
+							// If empty form is submitted
+							let responseMessage = `Internal Error`;
+							console.log(responseMessage);
+						}
 					}
 				}
-			})
+			);
 		}
 
 		// If the user presses SAVE
 		if (this.props.activeItem === "submit") {
+			this.props.putRequest(
+				`http://localhost:2000/users/${username}`,
+				data,
+				res => {
+					var responseBox = $(".EditUser .response-box");
 
-			this.props.putRequest(`http://localhost:2000/users/${username}`, data,  (res) => {
-
-				var responseBox = $(".EditUser .response-box");
-
-				if ( res.status === 200 ) {
-					if (responseBox.hasClass("response-failed")) {
-						responseBox.removeClass("response-failed");
+					if (res.status === 200) {
+						if (responseBox.hasClass("response-failed")) {
+							responseBox.removeClass("response-failed");
 						}
-					responseBox.addClass("response-success");
-				} else {
-					if (responseBox.hasClass("response-success")) {
-						responseBox.removeClass("response-success");
-					}
-					responseBox.addClass("response-failed");
-					if (res.status === 400) {
-					// Incomplete / Wrong Parameters
-						let responseMessage = `Incomplete/Wrong Parameters`;
-						console.log(responseMessage);
-						console.log(res);
-					}
-					if (res.status === 401) {
-					// No permission
-						let responseMessage = `The request is not authorized`;
-						console.log(responseMessage);
-					}
-					if (res.status === 409) {
-					// If username is correct, but password is wrong.
-						let responseMessage = `User already exists`;
-						console.log(responseMessage);
-					}
-					if (res.status === 500) {
-					// If empty form is submitted
-						let responseMessage = `Internal Error`;
-						console.log(responseMessage);
+						responseBox.addClass("response-success");
+					} else {
+						if (responseBox.hasClass("response-success")) {
+							responseBox.removeClass("response-success");
+						}
+						responseBox.addClass("response-failed");
+						if (res.status === 400) {
+							// Incomplete / Wrong Parameters
+							let responseMessage = `Incomplete/Wrong Parameters`;
+							console.log(responseMessage);
+							console.log(res);
+						}
+						if (res.status === 401) {
+							// No permission
+							let responseMessage = `The request is not authorized`;
+							console.log(responseMessage);
+						}
+						if (res.status === 409) {
+							// If username is correct, but password is wrong.
+							let responseMessage = `User already exists`;
+							console.log(responseMessage);
+						}
+						if (res.status === 500) {
+							// If empty form is submitted
+							let responseMessage = `Internal Error`;
+							console.log(responseMessage);
+						}
 					}
 				}
-			})
+			);
 		}
 		this.setState({
 			role: "",
@@ -283,50 +286,4 @@ export default class EditUser extends React.Component {
 		});
 		this.props.refreshAllUsers();
 	}
-
-	editUser = data => {
-		$.ajax({
-			type: "PUT",
-			url: `http://localhost:2000/users/${data.username}`,
-			datatype: "application/json",
-			data: data
-		})
-			.done(res => {
-				var responseBox = $(".response-box");
-				if (responseBox.hasClass("response-failed")) {
-					responseBox.removeClass("response-failed");
-				}
-				responseBox.addClass("response-success");
-			})
-			.fail(err => {
-				var responseBox = $(".response-box");
-				if (responseBox.hasClass("response-success")) {
-					responseBox.removeClass("response-success");
-				}
-				responseBox.addClass("response-failed");
-				console.log(err);
-				if (err.status === 400) {
-					// Incomplete / Wrong Parameters
-					let responseMessage = `Incomplete/Wrong Parameters`;
-					console.log(responseMessage);
-					console.log(err);
-				}
-				if (err.status === 401) {
-					// No permission
-					let responseMessage = `The request is not authorized`;
-					console.log(responseMessage);
-				}
-
-				if (err.status === 409) {
-					// If username is correct, but password is wrong.
-					let responseMessage = `User already exists`;
-					console.log(responseMessage);
-				}
-				if (err.status === 500) {
-					// If empty form is submitted
-					let responseMessage = `Internal Error`;
-					console.log(responseMessage);
-				}
-			});
-	};
 }
