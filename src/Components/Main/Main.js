@@ -90,6 +90,10 @@ class Main extends Component {
 	}
 
 	putRequest(url, data, done) {
+		var token = localStorage["aiims-login-token"]
+			.replace(/^"/, "")
+			.replace(/"$/, "");
+		data.token = token;
 		$.ajax({
 			url: url,
 			method: "PUT",
