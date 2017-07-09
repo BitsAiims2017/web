@@ -4,6 +4,7 @@ import { Icon } from "semantic-ui-react";
 import { Form } from "semantic-ui-react";
 import $ from "jquery";
 import { Checkbox } from "office-ui-fabric-react/lib/Checkbox";
+import AllPatients from "../AllPatients/AllPatients";
 
 const IconStyles = {
 	fontSize: "3vw",
@@ -11,12 +12,12 @@ const IconStyles = {
 	padding: "0px",
 	margin: "0px",
 	top: "3vh",
-	color: "white"
+	color: "rgba(10, 88, 64, 0.79)"
 };
 
 const options = [
-	{ key: "admin", text: "Admin", value: "admin" },
-	{ key: "viewer", text: "Viewer", value: "viewer" }
+	{ key: "male", text: "Male", value: "male" },
+	{ key: "female", text: "Female", value: "female" }
 ];
 
 export default class AddNewPatient extends React.Component {
@@ -24,9 +25,9 @@ export default class AddNewPatient extends React.Component {
 		super(props);
 		this.state = {
 			name: "",
-			username: "",
-			password: "",
-			role: "",
+			dob: "",
+			blood_group: "",
+			gender: "",
 			token: this.props.userInfo.token.replace(/^"/, "").replace(/"$/, ""),
 			check: false
 		};
@@ -35,7 +36,7 @@ export default class AddNewPatient extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	render() {
-		let name, username, password, role;
+		let name, dob, blood_group, gender;
 		let check = this.state.check;
 		return (
 			<div className="AddNewPatient">
@@ -45,10 +46,10 @@ export default class AddNewPatient extends React.Component {
 						<Icon name="add user" style={IconStyles} />
 					</div>
 					<br />
-					<hr style={{ borderColor: "rgba(0, 0, 0, 0.2)" }} />
+					<hr style={{ borderColor: "rgba(22, 82, 32, 0.48)" }} />
 					<br />
 					<div className="Form">
-						<h3 className="Form-Heading">Add User</h3>
+						<h3 className="Form-Heading">Add Patient</h3>
 						<Form onSubmit={this.handleSubmit}>
 							<Form.Group>
 								<Form.Input
@@ -60,35 +61,37 @@ export default class AddNewPatient extends React.Component {
 									autoComplete="off"
 								/>
 								<Form.Input
-									placeholder="Username"
-									name="username"
-									value={username}
+									placeholder="DOB"
+									name="dob"
+									value={dob}
 									onChange={this.handleChange}
-									required
 									autoComplete="off"
 								/>
 								<Form.Input
-									placeholder="Password"
-									name="password"
-									value={password}
+									placeholder="Blood Group"
+									name="blood_group"
+									value={blood_group}
 									onChange={this.handleChange}
-									required
 									autoComplete="off"
 								/>
 								<div className="Checkboxes">
 									<Checkbox
-										label="Admin"
+										label="Male"
 										checked={check === "1"}
-										onChange={this.handleCheckboxChange.bind(this, "admin")}
-										ref="admin"
+										onChange={this.handleCheckboxChange.bind(this, "male")}
+										ref="male"
 									/>
 									<Checkbox
-										label="Viewer"
+										label="Female"
 										checked={check === "2"}
-										onChange={this.handleCheckboxChange.bind(this, "viewer")}
+										onChange={this.handleCheckboxChange.bind(this, "female")}
 									/>
 								</div>
-								<Form.Button content="Submit" />
+								<Form.Button
+									content="Submit"
+									onClick={this.handleClick.bind(this, "submit")}
+									key="submit"
+								/>
 							</Form.Group>
 						</Form>
 					</div>
@@ -97,30 +100,35 @@ export default class AddNewPatient extends React.Component {
 			</div>
 		);
 	}
+
+	handleClick(i, e) {
+		this.props.selectItem(i);	
+	}
+
 	handleCheckboxChange(ref, e) {
-		if (ref === "admin") {
+		if (ref === "male") {
 			if (this.state.check !== "1") {
 				this.setState({
 					check: "1",
-					role: "admin"
+					gender: "male"
 				});
 			} else {
 				this.setState({
 					check: "0",
-					role: ""
+					gender: ""
 				});
 			}
 		}
-		if (ref === "viewer") {
+		if (ref === "female") {
 			if (this.state.check !== "2") {
 				this.setState({
 					check: "2",
-					role: "viewer"
+					gender: "female"
 				});
 			} else {
 				this.setState({
 					check: "0",
-					role: ""
+					gender: ""
 				});
 			}
 		}
@@ -131,19 +139,19 @@ export default class AddNewPatient extends React.Component {
 	// Function to handle things that should happen after submit.
 	handleSubmit(e) {
 		e.preventDefault();
-		let { name, username, password, role, token } = this.state;
-		let data = { name, username, password, role, token };
-		this.postUser(data);
+		let { name, dob, blood_group, gender, token } = this.state;
+		let data = { name, dob, blood_group, gender, token };
+		this.postPatient(data);
 		this.setState({
-			role: "",
+			gender: "",
 			check: false
 		});
 	}
 
-	postUser = data => {
+	postPatient = data => {
 		$.ajax({
 			type: "POST",
-			url: "http://localhost:2000/users/",
+			url: "http://localhost:2000/patient/",
 			data: data,
 			datatype: "application/json"
 		})
@@ -174,8 +182,8 @@ export default class AddNewPatient extends React.Component {
 				}
 
 				if (err.status === 409) {
-					// If username is correct, but password is wrong.
-					let responseMessage = `User already exists`;
+					// If dob is correct, but blood_group is wrong.
+					let responseMessage = `Patient already exists`;
 					console.log(responseMessage);
 				}
 				if (err.status === 500) {

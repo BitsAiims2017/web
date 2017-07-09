@@ -1,17 +1,19 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import "./AddNewUser.css";
 import { Icon } from "semantic-ui-react";
 import { Form } from "semantic-ui-react";
 import $ from "jquery";
 import { Checkbox } from "office-ui-fabric-react/lib/Checkbox";
+import AllUsers from "../AllUsers/AllUsers";
 
 const IconStyles = {
-    fontSize: "3vw",
-    position: "relative",
-    padding: "0px",
-    margin: "0px",
-    top: "3vh",
-    color: "rgba(51, 10, 88, 0.79)"
+	fontSize: "3vw",
+	position: "relative",
+	padding: "0px",
+	margin: "0px",
+	top: "3vh",
+	color: "rgba(51, 10, 88, 0.79)"
 };
 
 const options = [
@@ -88,7 +90,24 @@ export default class AddNewUser extends React.Component {
 										onChange={this.handleCheckboxChange.bind(this, "viewer")}
 									/>
 								</div>
-								<Form.Button content="Submit" />
+								<div className="Checkboxes">
+									<Checkbox
+										label="Doctor"
+										checked={check === "3"}
+										onChange={this.handleCheckboxChange.bind(this, "doctor")}
+										ref="admin"
+									/>
+									<Checkbox
+										label="Inventory"
+										checked={check === "4"}
+										onChange={this.handleCheckboxChange.bind(this, "inventory")}
+									/>
+								</div>
+								<Form.Button
+									content="Submit"
+									onClick={this.handleClick.bind(this, "submit")}
+									key="submit"
+								/>
 							</Form.Group>
 						</Form>
 					</div>
@@ -97,6 +116,11 @@ export default class AddNewUser extends React.Component {
 			</div>
 		);
 	}
+
+	handleClick(i, e) {
+		this.props.selectItem(i);
+	}
+
 	handleCheckboxChange(ref, e) {
 		if (ref === "admin") {
 			if (this.state.check !== "1") {
@@ -124,6 +148,32 @@ export default class AddNewUser extends React.Component {
 				});
 			}
 		}
+		if (ref === "doctor") {
+			if (this.state.check !== "3") {
+				this.setState({
+					check: "3",
+					role: "doctor"
+				});
+			} else {
+				this.setState({
+					check: "0",
+					role: ""
+				});
+			}
+		}
+		if (ref === "inventory") {
+			if (this.state.check !== "4") {
+				this.setState({
+					check: "4",
+					role: "inventory"
+				});
+			} else {
+				this.setState({
+					check: "0",
+					role: ""
+				});
+			}
+		}
 		console.log(ref);
 	}
 	handleChange = (e, { name, value }) => this.setState({ [name]: value });
@@ -138,6 +188,7 @@ export default class AddNewUser extends React.Component {
 			role: "",
 			check: false
 		});
+		this.props.refreshAllUsers();
 	}
 
 	postUser = data => {
@@ -148,7 +199,7 @@ export default class AddNewUser extends React.Component {
 			datatype: "application/json"
 		})
 			.done(res => {
-				var responseBox = $(".response-box");
+				var responseBox = $(".AddNewUser .response-box");
 				if (responseBox.hasClass("response-failed")) {
 					responseBox.removeClass("response-failed");
 				}

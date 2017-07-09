@@ -1,5 +1,7 @@
 .AddNewPatient-Form {
-	background: rgba(85, 1, 121, 0.75);
+	background: white;
+	-webkit-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
+	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
 	width: 18vw;
 	height: 51vh;
 	position: absolute;
@@ -10,17 +12,17 @@
 	animation: comeIn 0.3s ease-out;
 }
 
-h3.Form-Heading {
+.AddNewPatient-Form h3.Form-Heading {
 	margin: 0 1vw 2vh 0;
 	font-size: 1vw;
 	font-family: 'Roboto', sans-serif;
-	color: rgba(255, 255, 255, 0.6);
+	color: rgb(14, 74, 20);
 	font-weight: 200;
 	text-align: center;
 }
 
 .AddNewPatient-Form .Form button.ui.button {
-	background: rgb(55, 18, 72);
+	background: rgb(20, 78, 51);
 	border-radius: 0;
 	font-size: 1.4vw;
 	margin-top: 2.1vh;
@@ -29,7 +31,8 @@ h3.Form-Heading {
 	font-weight: 500;
 	-webkit-transition: all 0.1s;
 	-o-transition: all 0.1s;
-	border: 1px solid #9f00ff;
+	border: 1px solid #155700;
+	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.44);
 	transition: all 0.1s;
 }
 
@@ -50,7 +53,7 @@ h3.Form-Heading {
 	height: 4.7vh;
 	margin: 0.6vh;
 	background: rgba(0, 0, 0, 0.17);
-	color: whitesmoke;
+	color: black;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 200;
 	font-size: 0.9vw;
@@ -66,14 +69,14 @@ h3.Form-Heading {
 .AddNewPatient-Form button.ui.button,
 button.ui.button:active,
 button.ui.button:focus {
-	background-color: rgba(144, 17, 42, 0.4);
+	background-color: #1C7D4D;
 	color: rgba(255, 255, 255, .9);
 }
 
 .AddNewPatient-Form button.ui.button,
 button.ui.button:active,
 button.ui.button:hover {
-	background-color: rgba(159, 1, 110, 0.6);
+	background-color: #0E5725;
 	color: rgba(255, 255, 255, .9);
 }
 
@@ -89,7 +92,7 @@ button.ui.button:hover {
 .AddNewPatient-Form .ui.form input[type=file]:focus,
 .AddNewPatient-Form .ui.form input[type=url]:focus,
 .AddNewPatient-Form .ui.form input[type=number]:focus {
-	border: 1px solid #c493ea;
+	border: 1px solid #002D08;
 }
 
 .AddNewPatient-Form .ui.form input:not([type])::selection,
@@ -106,6 +109,20 @@ button.ui.button:hover {
 .AddNewPatient-Form .ui.form input[type=number]::selection {
 	background: rgba(0, 0, 0, 0.8);
 	color: whitesmoke;
+}
+.AddNewPatient-Form .ui.form input:not([type])::placeholder,
+.AddNewPatient-Form .ui.form input[type=text]::placeholder,
+.AddNewPatient-Form .ui.form input[type=email]::placeholder,
+.AddNewPatient-Form .ui.form input[type=search]::placeholder,
+.AddNewPatient-Form .ui.form input[type=password]::placeholder,
+.AddNewPatient-Form .ui.form input[type=date]::placeholder,
+.AddNewPatient-Form .ui.form input[type=datetime-local]::placeholder,
+.AddNewPatient-Form .ui.form input[type=tel]::placeholder,
+.AddNewPatient-Form .ui.form input[type=time]::placeholder,
+.AddNewPatient-Form .ui.form input[type=file]::placeholder,
+.AddNewPatient-Form .ui.form input[type=url]::placeholder,
+.AddNewPatient-Form .ui.form input[type=number]::placeholder {
+	color: rgba(20, 73, 0, 0.8);
 }
 
 /* Styling checkboxes */
@@ -126,7 +143,7 @@ button.ui.button:hover {
 }
 
 .AddNewPatient-Form .textLabel_79db315f {
-	color: rgba(255, 255, 255, 0.69);
+	color: #244E09;
 	font-size: 0.9vw;
 	font-weight: 200;
 	-webkit-transition: all 0.3s;
@@ -135,13 +152,13 @@ button.ui.button:hover {
 }
 
 .AddNewPatient-Form .root_79db315f:hover .textLabel_79db315f {
-	color: rgba(255, 255, 255, 0.69);
+	color: #244E09;
 }
 
 @-webkit-keyframes comeIn {
 	from {
 		opacity: 0;
-		top: 5vh;
+		top: 7vh;
 	}
 	to {
 		opacity: 1;
@@ -152,7 +169,7 @@ button.ui.button:hover {
 @-moz-keyframes comeIn {
 	from {
 		opacity: 0;
-		top: 5vh;
+		top: 7vh;
 	}
 	to {
 		opacity: 1;
@@ -163,7 +180,7 @@ button.ui.button:hover {
 @keyframes comeIn {
 	from {
 		opacity: 0;
-		top: 5vh;
+		top: 7vh;
 	}
 	to {
 		opacity: 1;
@@ -173,7 +190,7 @@ button.ui.button:hover {
 
 /* Styling response box */
 
-.response-box {
+.AddNewPatient .response-box {
 	width: 18vw;
 	height: 20vh;
 	position: absolute;
@@ -182,15 +199,15 @@ button.ui.button:hover {
 	opacity: 0;
 }
 
-.response-success {
-	background: rgba(0, 74, 93, 0.75);
+.AddNewPatient .response-success {
+	background: rgba(21, 93, 0, 0.75);
 	border-top: 1px solid rgba(255, 255, 255, 0.35);
 	-webkit-animation: responseComeIn 0.3s ease-out;
 	animation: responseComeIn 0.3s ease-out;
 	opacity: 1;
 }
 
-.response-failed {
+.AddNewPatient .response-failed {
 	background: rgba(140, 24, 24, 0.7);
 	border-top: 1px solid rgba(255, 255, 255, 0.19);
 	-webkit-animation: responseComeIn 0.3s ease-out;

@@ -36,6 +36,8 @@ export default class App extends React.Component {
 					selectItem={this.handleActiveItem}
 					getRequest={this.props.getRequest}
 					postRequest={this.props.postRequest}
+					deleteRequest={this.props.deleteRequest}
+					putRequest={this.props.putRequest}
 				/>
 				<AppBar
 					userInfo={this.props.userInfo}

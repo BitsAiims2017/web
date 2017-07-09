@@ -8,6 +8,10 @@ export default class Inventory extends React.Component {
 	}
 
 	render() {
-		return <div className="Inventory" />;
+		return (
+			<div className="Inventory">
+				whats up
+			</div>
+		);
 	}
 }

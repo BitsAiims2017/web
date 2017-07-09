@@ -1,9 +1,0 @@
-.Orders {
-    width: 100vw;
-    height: 92vh;
-    background: whitesmoke;
-    position: absolute;
-    top: 0vh;
-    font-family: 'Roboto';
-    animation: appear 0.3s;
-}
