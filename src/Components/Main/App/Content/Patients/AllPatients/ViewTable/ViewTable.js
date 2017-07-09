@@ -20,18 +20,18 @@ const TABLE_COLUMNS_SORT_STYLE = [
     sortable: true
   },
   {
-    key: "username",
-    label: "Username",
+    key: "dob",
+    label: "DOB",
     sortable: true
   },
   {
-    key: "role",
-    label: "Role",
+    key: "blood_group",
+    label: "Blood Group",
     sortable: true
   },
   {
     key: "date",
-    label: "Date Joined",
+    label: "Date Added",
     sortable: true
   }
 ];
@@ -46,7 +46,7 @@ export default class ViewTable extends React.Component {
     this.handleRowSizeChange = this.handleRowSizeChange.bind(this);
     this.handleRowClick = this.handleRowClick.bind(this);
     this.handleData = this.handleData.bind(this);
-    this.getAllUserData = this.getAllUserData.bind(this);
+    this.getAllPatientData = this.getAllPatientData.bind(this);
     this.state = {
       data: [],
       currentPage: 1,
@@ -59,8 +59,8 @@ export default class ViewTable extends React.Component {
     };
   }
 
-  getAllUserData() {
-    this.props.getRequest("http://localhost:2000/users/", res => {
+  getAllPatientData() {
+    this.props.getRequest("http://localhost:2000/patient/", res => {
       for (var i = 0, upperLimit = res.length; i < upperLimit; i += 1) {
         res[i].date = `${res[i].joined.day} / ${res[i].joined.month +
           1} / ${res[i].joined.year} `; // - ${res[i].joined.hour}:${res[i].joined.minute}:${res[i].joined.second}`;
@@ -115,7 +115,7 @@ export default class ViewTable extends React.Component {
   }
 
   componentWillMount() {
-    this.getAllUserData();
+    this.getAllPatientData();
     this.handleData(
       this.state.currentPage,
       this.state.rowSize,
@@ -227,7 +227,7 @@ export default class ViewTable extends React.Component {
   }
 
   handleRowClick() {
-    console.log("yay");
+    console.log("Clicked!")
   }
 
   render() {
@@ -235,11 +235,11 @@ export default class ViewTable extends React.Component {
       <div className="ViewTable">
         <MuiThemeProvider>
           <DataTables
-            title={"Users"}
+            title={"Patients"}
             titleStyle={{
               fontSize: "1.5vw",
               fontFamily: "'Roboto', sans-serif",
-              color: "rgb(106, 0, 111)",
+              color: "rgb(0, 111, 51)",
               fontWeight: "200",
               textAlign: "center",
               overflow: "hidden"
@@ -258,7 +258,7 @@ export default class ViewTable extends React.Component {
             onPreviousPageClick={this.handlePreviousPageClick}
             onSortOrderChange={this.handleSortOrderChange}
             onRowSizeChange={this.handleRowSizeChange}
-            onRowClick={this.handleRowClick}
+            onRowHover={this.handleRowClick}
             page={this.state.currentPage}
             count={this.state.total}
             rowSize={this.state.rowSize}

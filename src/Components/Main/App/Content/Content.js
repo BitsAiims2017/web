@@ -3,7 +3,6 @@ import "./Content.css";
 import Dashboard from "./Dashboard/Dashboard";
 import Patients from "./Patients/Patients";
 import Users from "./Users/Users";
-import Orders from "./Orders/Orders";
 import Inventory from "./Inventory/Inventory";
 import Feedback from "./Feedback/Feedback";
 import Shortcuts from "./Shortcuts/Shortcuts";
@@ -51,6 +50,8 @@ export default class Content extends React.Component {
 									selectItem={this.props.selectItem}
 									getRequest={this.props.getRequest}
 									postRequest={this.props.postRequest}
+									deleteRequest={this.props.deleteRequest}
+									putRequest={this.props.putRequest}
 								/>
 							);
 							break;
@@ -64,6 +65,8 @@ export default class Content extends React.Component {
 									selectItem={this.props.selectItem}
 									getRequest={this.props.getRequest}
 									postRequest={this.props.postRequest}
+									deleteRequest={this.props.deleteRequest}
+									putRequest={this.props.putRequest}
 								/>
 							);
 							break;
@@ -77,19 +80,8 @@ export default class Content extends React.Component {
 									selectItem={this.props.selectItem}
 									getRequest={this.props.getRequest}
 									postRequest={this.props.postRequest}
-								/>
-							);
-							break;
-						case "orders":
-							return (
-								<Orders
-									userInfo={this.props.userInfo}
-									activePage={this.props.activePage}
-									activeItem={this.props.activeItem}
-									selectPage={this.props.selectPage}
-									selectItem={this.props.selectItem}
-									getRequest={this.props.getRequest}
-									postRequest={this.props.postRequest}
+									deleteRequest={this.props.deleteRequest}
+									putRequest={this.props.putRequest}
 								/>
 							);
 							break;
@@ -103,6 +95,8 @@ export default class Content extends React.Component {
 									selectItem={this.props.selectItem}
 									getRequest={this.props.getRequest}
 									postRequest={this.props.postRequest}
+									deleteRequest={this.props.deleteRequest}
+									putRequest={this.props.putRequest}
 								/>
 							);
 							break;
@@ -116,6 +110,8 @@ export default class Content extends React.Component {
 									selectItem={this.props.selectItem}
 									getRequest={this.props.getRequest}
 									postRequest={this.props.postRequest}
+									deleteRequest={this.props.deleteRequest}
+									putRequest={this.props.putRequest}
 								/>
 							);
 							break;
@@ -129,6 +125,8 @@ export default class Content extends React.Component {
 									selectItem={this.props.selectItem}
 									getRequest={this.props.getRequest}
 									postRequest={this.props.postRequest}
+									deleteRequest={this.props.deleteRequest}
+									putRequest={this.props.putRequest}
 								/>
 							);
 							break;
@@ -142,6 +140,8 @@ export default class Content extends React.Component {
 									selectItem={this.props.selectItem}
 									getRequest={this.props.getRequest}
 									postRequest={this.props.postRequest}
+									deleteRequest={this.props.deleteRequest}
+									putRequest={this.props.putRequest}
 								/>
 							);
 							break;
@@ -155,6 +155,8 @@ export default class Content extends React.Component {
 									selectItem={this.props.selectItem}
 									getRequest={this.props.getRequest}
 									postRequest={this.props.postRequest}
+									deleteRequest={this.props.deleteRequest}
+									putRequest={this.props.putRequest}
 								/>
 							);
 							break;

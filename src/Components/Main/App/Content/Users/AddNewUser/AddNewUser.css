@@ -3,7 +3,7 @@
 	-webkit-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
 	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
 	width: 18vw;
-	height: 51vh;
+	height: 56vh;
 	position: absolute;
 	top: 3vh;
 	left: 2vw;
@@ -12,7 +12,7 @@
 	animation: comeIn 0.3s ease-out;
 }
 
-h3.Form-Heading {
+.AddNewUser-Form h3.Form-Heading {
 	margin: 0 1vw 2vh 0;
 	font-size: 1vw;
 	font-family: 'Roboto', sans-serif;
@@ -32,7 +32,6 @@ h3.Form-Heading {
 	-webkit-transition: all 0.1s;
 	-o-transition: all 0.1s;
 	border: 1px solid #9f00ff;
-	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.44);
 	transition: all 0.1s;
 }
 
@@ -122,7 +121,7 @@ button.ui.button:hover {
 .AddNewUser-Form .ui.form input[type=file]::placeholder,
 .AddNewUser-Form .ui.form input[type=url]::placeholder,
 .AddNewUser-Form .ui.form input[type=number]::placeholder {
-	color:rgba(75, 2, 64, 0.8);
+	color: rgba(75, 2, 64, 0.8);
 }
 
 /* Styling checkboxes */
@@ -139,7 +138,7 @@ button.ui.button:hover {
 	min-height: 36px;
 	position: relative;
 	flex-basis: 50%;
-	text-align: center;
+	margin: 0px 1.5vw;
 }
 
 .AddNewUser-Form .textLabel_79db315f {
@@ -190,16 +189,16 @@ button.ui.button:hover {
 
 /* Styling response box */
 
-.response-box {
+.AddNewUser .response-box {
 	width: 18vw;
 	height: 20vh;
 	position: absolute;
-	top: 54vh;
+	top: 59vh;
 	left: 2vw;
 	opacity: 0;
 }
 
-.response-success {
+.AddNewUser .response-success {
 	background: rgba(21, 93, 0, 0.75);
 	border-top: 1px solid rgba(255, 255, 255, 0.35);
 	-webkit-animation: responseComeIn 0.3s ease-out;
@@ -207,7 +206,7 @@ button.ui.button:hover {
 	opacity: 1;
 }
 
-.response-failed {
+.AddNewUser .response-failed {
 	background: rgba(140, 24, 24, 0.7);
 	border-top: 1px solid rgba(255, 255, 255, 0.19);
 	-webkit-animation: responseComeIn 0.3s ease-out;
@@ -218,32 +217,32 @@ button.ui.button:hover {
 @-webkit-keyframes responseComeIn {
 	from {
 		opacity: 0;
-		top: 57vh;
+		top: 62vh;
 	}
 	to {
 		opacity: 1;
-		top: 54vh;
+		top: 59vh;
 	}
 }
 
 @-moz-keyframes responseComeIn {
 	from {
 		opacity: 0;
-		top: 57vh;
+		top: 62vh;
 	}
 	to {
 		opacity: 1;
-		top: 54vh;
+		top: 59vh;
 	}
 }
 
 @keyframes responseComeIn {
 	from {
 		opacity: 0;
-		top: 57vh;
+		top: 62vh;
 	}
 	to {
 		opacity: 1;
-		top: 54vh;
+		top: 59vh;
 	}
 }

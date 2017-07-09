@@ -10,6 +10,7 @@ export default class AllUsers extends React.Component {
 	render() {
 		return (
 			<div className="AllUsers">
+
 				<ViewTable
 					selectPage={this.props.selectPage}
 					selectItem={this.props.selectItem}
@@ -17,7 +18,11 @@ export default class AllUsers extends React.Component {
 					activePage={this.props.activePage}
 					getRequest={this.props.getRequest}
 					postRequest={this.props.postRequest}
+					deleteRequest={this.props.deleteRequest}
+					putRequest={this.props.putRequest}
+					ref="viewtable"
 				/>
+
 			</div>
 		);
 	}

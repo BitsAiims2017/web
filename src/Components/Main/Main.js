@@ -18,6 +18,8 @@ class Main extends Component {
 		this.forgetUserInfo = this.forgetUserInfo.bind(this);
 		this.postRequest = this.postRequest.bind(this);
 		this.getRequest = this.getRequest.bind(this);
+		this.putRequest = this.putRequest.bind(this);
+		this.deleteRequest = this.deleteRequest.bind(this);
 	}
 
 	// This function will remember the token, username and  when the server gives it for the very first time
@@ -62,29 +64,63 @@ class Main extends Component {
 			data: data
 		})
 			.done(res => {
-			  done(res);
+				done(res);
 			})
 			.fail(err => {
-			  done(err);
+				done(err);
 			});
 	}
 
 	getRequest(url, done) {
-      var token = localStorage["aiims-login-token"]
-      .replace(/^"/, "").replace(/"$/, "");
+		var token = localStorage["aiims-login-token"]
+			.replace(/^"/, "")
+			.replace(/"$/, "");
 		$.ajax({
-      url: url,
+			url: url,
 			type: "GET",
 			datatype: "application/json",
-      data: { token: token }
+			data: { token: token }
 		})
 			.done(res => {
-			  done(res);
+				done(res);
 			})
 			.fail(err => {
-			  done(err);
+				done(err);
 			});
 	}
+
+	putRequest(url, data, done) {
+		$.ajax({
+			url: url,
+			method: "PUT",
+			data: data,
+		})
+			.done(res => {
+				done(res);
+			})
+			.fail(err => {
+				done(err);
+			});
+	}
+
+	deleteRequest(url, done) {
+		var token = localStorage["aiims-login-token"]
+			.replace(/^"/, "")
+			.replace(/"$/, "");
+		$.ajax({
+			url: url,
+			type: "DELETE",
+			datatype: "application/json",
+			data: { token: token }
+		})
+			.done(res => {
+				done(res);
+			})
+			.fail(err => {
+				done(err);
+			});
+	}
+
 	// Render function will render everything. Nothing much is added to it yet,
 	render() {
 		if (!localStorage["aiims-login-token"]) {
@@ -97,6 +133,8 @@ class Main extends Component {
 					sendPageIndexToMain={this.getPageIndex}
 					getRequest={this.getRequest}
 					postRequest={this.postRequest}
+					deleteRequest={this.deleteRequest}
+					putRequest={this.putRequest}
 				/>
 			);
 		}

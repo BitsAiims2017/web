@@ -5,30 +5,27 @@ import $ from "jquery";
 import Toolbar from "./Toolbar/Toolbar";
 import AddNewUser from "./AddNewUser/AddNewUser";
 import AllUsers from "./AllUsers/AllUsers";
+import EditUser from "./EditUser/EditUser";
 
 export default class Users extends React.Component {
 	constructor(props) {
 		super(props);
-		this.getAllUserData = this.getAllUserData.bind(this);
-		// this.editUserData = this.editUserData.bind(this);
-		this.state =  {
-			alluserdata : []
-		}
+		this.state = {
+			val: 1
+		};
+		this.refreshAllUsers = this.refreshAllUsers.bind(this);
 	}
 
-	getAllUserData() {
-		this.props.getRequest("http://localhost:2000/users/", (res) => {
-		  return res;
+	refreshAllUsers() {
+		this.setState({
+			val: this.state.val + 1
 		});
-	}
-
-	componentDidMount() {
-		this.getAllUserData();
 	}
 
 	render() {
 		return (
 			<div className="Users">
+				{this.state.val}
 				<AddNewUser
 					userInfo={this.props.userInfo}
 					selectPage={this.props.selectPage}
@@ -37,14 +34,33 @@ export default class Users extends React.Component {
 					activePage={this.props.activePage}
 					getRequest={this.props.getRequest}
 					postRequest={this.props.postRequest}
+					deleteRequest={this.props.deleteRequest}
+					putRequest={this.props.putRequest}
+					refreshAllUsers={this.refreshAllUsers}
+					onClick={this.refreshAllUsers}
 				/>
-
+				{/*}
 				<Toolbar
 					selectPage={this.props.selectPage}
 					selectItem={this.props.selectItem}
 					activeItem={this.props.activeItem}
 					activePage={this.props.activePage}
+				/> 
+				*/}
+
+				<EditUser
+					userInfo={this.props.userInfo}
+					selectPage={this.props.selectPage}
+					selectItem={this.props.selectItem}
+					activeItem={this.props.activeItem}
+					activePage={this.props.activePage}
+					getRequest={this.props.getRequest}
+					postRequest={this.props.postRequest}
+					deleteRequest={this.props.deleteRequest}
+					putRequest={this.props.putRequest}
+					refreshAllUsers={this.refreshAllUsers}
 				/>
+
 				<AllUsers
 					selectPage={this.props.selectPage}
 					selectItem={this.props.selectItem}
@@ -52,6 +68,9 @@ export default class Users extends React.Component {
 					activePage={this.props.activePage}
 					getRequest={this.props.getRequest}
 					postRequest={this.props.postRequest}
+					deleteRequest={this.props.deleteRequest}
+					putRequest={this.props.putRequest}
+					ref="allusers"
 				/>
 			</div>
 		);

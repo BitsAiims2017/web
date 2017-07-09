@@ -4,7 +4,6 @@ import injectTapEventPlugin from "react-tap-event-plugin";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import RaisedButton from "material-ui/RaisedButton";
 // Import Icons
-import IconShoppingCart from "material-ui/svg-icons/action/shopping-cart";
 import IconPeople from "material-ui/svg-icons/social/people";
 import IconStore from "material-ui/svg-icons/action/store";
 import IconLocalHospital from "material-ui/svg-icons/maps/local-hospital";
@@ -26,7 +25,6 @@ const IconsStyles = {
 const dashboardIcon = <IconDashboard style={IconsStyles} />;
 const usersIcon = <IconPeople style={IconsStyles} />;
 const InventoryIcon = <IconStore style={IconsStyles} />;
-const ordersIcon = <IconShoppingCart style={IconsStyles} />;
 const patientsIcon = <IconLocalHospital style={IconsStyles} />;
 
 // Menu styles
@@ -39,9 +37,9 @@ const menuStyles = {
 
 // Class AppBar
 export default class AppBar extends React.Component {
-	componentWillMount() {
-		injectTapEventPlugin();
-	}
+	// componentWillMount() {
+	// 	injectTapEventPlugin();
+	// }
 
 	handleClick(i, e) {
 		// On click, index corresponding to key of clicked thing is sent to  App.js, stored as a state. From there, it'll be sent to Content.js via states.
@@ -175,35 +173,6 @@ export default class AppBar extends React.Component {
 								icon={InventoryIcon}
 								onClick={this.handleClick.bind(this, "inventory")}
 								key="inventory"
-							/>
-						</li>
-						<li>
-							<RaisedButton
-								label="Orders"
-								labelPosition="before"
-								labelStyle={{
-									textTransform: "none",
-									fontSize: "1vw",
-									lineHeight: "100%",
-									fontWeight: "200"
-								}}
-								style={{
-									backgroundColor: "transparent",
-									margin: "0",
-									lineHeight: "8vh"
-								}}
-								fullWidth={true}
-								buttonStyle={{
-									backgroundColor: "#002F49",
-									height: "6vh",
-									margin: "1vh 0",
-									padding: "0.1vh",
-									borderRadius: "0"
-								}}
-								labelColor={"#FFF"}
-								icon={ordersIcon}
-								onClick={this.handleClick.bind(this, "orders")}
-								key="orders"
 							/>
 						</li>
 						{this.renderUserTab()}

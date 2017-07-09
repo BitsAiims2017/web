@@ -1,9 +1,9 @@
-.AllUsers {
+.AllPatients {
     position: absolute;
     top: 3vh;
     left: 21vw;
     height: 82vh;
-    width: 58vw;
+    width: 45vw;
     /* -webkit-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4); */
     /* box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4); */
     background: rgba(81, 2, 115, 0);
