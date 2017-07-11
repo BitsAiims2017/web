@@ -1,4 +1,4 @@
-.EditUser {
+.EditItem {
 	background: white;
 	height: 66vh;
 	width: 18vw;
@@ -47,7 +47,7 @@
 	}
 }
 
-.EditUser-Form h3.Form-Heading {
+.EditItem-Form h3.Form-Heading {
 	margin: 0 1vw 2vh 0;
 	font-size: 1vw;
 	font-family: 'Roboto', sans-serif;
@@ -56,7 +56,7 @@
 	text-align: center;
 }
 
-.EditUser-Form .Form .Save  button.ui.button {
+.EditItem-Form .Form .Save  button.ui.button {
 	background: rgb(11, 97, 53);
 	border-radius: 0;
 	font-size: 1.2vw;
@@ -72,7 +72,7 @@
 	left: 8.9vw;
 }
 
-.EditUser-Form .Form .Delete  button.ui.button {
+.EditItem-Form .Form .Delete  button.ui.button {
 	background: rgb(167, 29, 14);
 	border-radius: 0;
 	font-size: 1.2vw;
@@ -88,104 +88,104 @@
 	left: 0vw;
 }
 
-.EditUser-Form .ui .form {
+.EditItem-Form .ui .form {
 	height: 37vh;
 	position: relative;
 	top: 3vh;
 }
 
-.EditUser-Form .ui.form .fields {
+.EditItem-Form .ui.form .fields {
 	display: flex;
 	flex-direction: column;
 }
 
-.EditUser-Form .Form .ui.form .field .ui.input input,
+.EditItem-Form .Form .ui.form .field .ui.input input,
 .ui.form .fields .field .ui.input input {
 	width: auto;
-	height: 4.7vh;
+	height: 4vh;
 	margin: 0.6vh;
 	background: rgba(0, 0, 0, 0.17);
 	color: black;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 200;
-	font-size: 0.9vw;
+	font-size: 0.8vw;
 	border-radius: 0;
 }
 
-.EditUser-Form .Form .ui.form .field:last-child,
+.EditItem-Form .Form .ui.form .field:last-child,
 .ui.form .fields:last-child .field {
 	margin-bottom: 0;
 	text-align: center;
 }
 
-/* .EditUser-Form button.ui.button,
+/* .EditItem-Form button.ui.button,
 button.ui.button:active,
 button.ui.button:focus {
 	background-color: rgba(144, 17, 42, 0.4);
 	color: rgba(255, 255, 255, .9);
 } */
 
-/* .EditUser-Form button.ui.button,
+/* .EditItem-Form button.ui.button,
 button.ui.button:active,
 button.ui.button:hover {
 	background-color: rgba(159, 1, 110, 0.6);
 	color: rgba(255, 255, 255, .9);
 } */
 
-.EditUser-Form .ui.form input:not([type]):focus,
-.EditUser-Form .ui.form input[type=text]:focus,
-.EditUser-Form .ui.form input[type=email]:focus,
-.EditUser-Form .ui.form input[type=search]:focus,
-.EditUser-Form .ui.form input[type=password]:focus,
-.EditUser-Form .ui.form input[type=date]:focus,
-.EditUser-Form .ui.form input[type=datetime-local]:focus,
-.EditUser-Form .ui.form input[type=tel]:focus,
-.EditUser-Form .ui.form input[type=time]:focus,
-.EditUser-Form .ui.form input[type=file]:focus,
-.EditUser-Form .ui.form input[type=url]:focus,
-.EditUser-Form .ui.form input[type=number]:focus {
+.EditItem-Form .ui.form input:not([type]):focus,
+.EditItem-Form .ui.form input[type=text]:focus,
+.EditItem-Form .ui.form input[type=email]:focus,
+.EditItem-Form .ui.form input[type=search]:focus,
+.EditItem-Form .ui.form input[type=password]:focus,
+.EditItem-Form .ui.form input[type=date]:focus,
+.EditItem-Form .ui.form input[type=datetime-local]:focus,
+.EditItem-Form .ui.form input[type=tel]:focus,
+.EditItem-Form .ui.form input[type=time]:focus,
+.EditItem-Form .ui.form input[type=file]:focus,
+.EditItem-Form .ui.form input[type=url]:focus,
+.EditItem-Form .ui.form input[type=number]:focus {
 	border: 1px solid #c493ea;
 }
 
-.EditUser-Form .ui.form input:not([type])::selection,
-.EditUser-Form .ui.form input[type=text]::selection,
-.EditUser-Form .ui.form input[type=email]::selection,
-.EditUser-Form .ui.form input[type=search]::selection,
-.EditUser-Form .ui.form input[type=password]::selection,
-.EditUser-Form .ui.form input[type=date]::selection,
-.EditUser-Form .ui.form input[type=datetime-local]::selection,
-.EditUser-Form .ui.form input[type=tel]::selection,
-.EditUser-Form .ui.form input[type=time]::selection,
-.EditUser-Form .ui.form input[type=file]::selection,
-.EditUser-Form .ui.form input[type=url]::selection,
-.EditUser-Form .ui.form input[type=number]::selection {
+.EditItem-Form .ui.form input:not([type])::selection,
+.EditItem-Form .ui.form input[type=text]::selection,
+.EditItem-Form .ui.form input[type=email]::selection,
+.EditItem-Form .ui.form input[type=search]::selection,
+.EditItem-Form .ui.form input[type=password]::selection,
+.EditItem-Form .ui.form input[type=date]::selection,
+.EditItem-Form .ui.form input[type=datetime-local]::selection,
+.EditItem-Form .ui.form input[type=tel]::selection,
+.EditItem-Form .ui.form input[type=time]::selection,
+.EditItem-Form .ui.form input[type=file]::selection,
+.EditItem-Form .ui.form input[type=url]::selection,
+.EditItem-Form .ui.form input[type=number]::selection {
 	background: rgba(0, 0, 0, 0.8);
 	color: whitesmoke;
 }
-.EditUser-Form .ui.form input:not([type])::placeholder,
-.EditUser-Form .ui.form input[type=text]::placeholder,
-.EditUser-Form .ui.form input[type=email]::placeholder,
-.EditUser-Form .ui.form input[type=search]::placeholder,
-.EditUser-Form .ui.form input[type=password]::placeholder,
-.EditUser-Form .ui.form input[type=date]::placeholder,
-.EditUser-Form .ui.form input[type=datetime-local]::placeholder,
-.EditUser-Form .ui.form input[type=tel]::placeholder,
-.EditUser-Form .ui.form input[type=time]::placeholder,
-.EditUser-Form .ui.form input[type=file]::placeholder,
-.EditUser-Form .ui.form input[type=url]::placeholder,
-.EditUser-Form .ui.form input[type=number]::placeholder {
+.EditItem-Form .ui.form input:not([type])::placeholder,
+.EditItem-Form .ui.form input[type=text]::placeholder,
+.EditItem-Form .ui.form input[type=email]::placeholder,
+.EditItem-Form .ui.form input[type=search]::placeholder,
+.EditItem-Form .ui.form input[type=password]::placeholder,
+.EditItem-Form .ui.form input[type=date]::placeholder,
+.EditItem-Form .ui.form input[type=datetime-local]::placeholder,
+.EditItem-Form .ui.form input[type=tel]::placeholder,
+.EditItem-Form .ui.form input[type=time]::placeholder,
+.EditItem-Form .ui.form input[type=file]::placeholder,
+.EditItem-Form .ui.form input[type=url]::placeholder,
+.EditItem-Form .ui.form input[type=number]::placeholder {
 	color: rgba(75, 2, 64, 0.8);
 }
 
 /* Styling checkboxes */
 
-.EditUser-Form .Checkboxes {
+.EditItem-Form .Checkboxes {
 	display: flex;
 	flex-direction: row;
 	margin-top: 1vh;
 }
 
-.EditUser-Form .root_79db315f {
+.EditItem-Form .root_79db315f {
 	box-sizing: border-box;
 	font-family: 'Roboto';
 	min-height: 36px;
@@ -194,7 +194,7 @@ button.ui.button:hover {
 	margin: 0px 1.5vw;
 }
 
-.EditUser-Form .textLabel_79db315f {
+.EditItem-Form .textLabel_79db315f {
 	color: #44094e;
 	font-size: 0.9vw;
 	font-weight: 200;
@@ -203,7 +203,7 @@ button.ui.button:hover {
 	transition: all 0.3s;
 }
 
-.EditUser-Form .root_79db315f:hover .textLabel_79db315f {
+.EditItem-Form .root_79db315f:hover .textLabel_79db315f {
 	color: #44094e;
 }
 
@@ -242,16 +242,16 @@ button.ui.button:hover {
 
 /* Styling response box */
 
-.EditUser .response-box {
-    width: 18vw;
-    height: 17vh;
-    position: absolute;
-    top: 66vh;
-    left: 0vw;
-    opacity: 0;
+.EditItem .response-box {
+	width: 18vw;
+	height: 17vh;
+	position: absolute;
+	top: 66vh;
+	left: 0vw;
+	opacity: 0;
 }
 
-.EditUser .response-success {
+.EditItem .response-success {
 	background: rgba(21, 93, 0, 0.75);
 	border-top: 1px solid rgba(255, 255, 255, 0.35);
 	-webkit-animation: responseComeIn 0.3s ease-out;
@@ -259,7 +259,7 @@ button.ui.button:hover {
 	opacity: 1;
 }
 
-.EditUser .response-failed {
+.EditItem .response-failed {
 	background: rgba(140, 24, 24, 0.7);
 	border-top: 1px solid rgba(255, 255, 255, 0.19);
 	-webkit-animation: responseComeIn 0.3s ease-out;

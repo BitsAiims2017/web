@@ -25,7 +25,6 @@ export default class Users extends React.Component {
 	render() {
 		return (
 			<div className="Users">
-				{this.state.val}
 				<AddNewUser
 					userInfo={this.props.userInfo}
 					selectPage={this.props.selectPage}

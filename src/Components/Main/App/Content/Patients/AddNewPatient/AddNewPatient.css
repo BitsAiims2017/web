@@ -50,13 +50,13 @@
 .AddNewPatient-Form .Form .ui.form .field .ui.input input,
 .ui.form .fields .field .ui.input input {
 	width: auto;
-	height: 4.7vh;
+	height: 4vh;
 	margin: 0.6vh;
 	background: rgba(0, 0, 0, 0.17);
 	color: black;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 200;
-	font-size: 0.9vw;
+	font-size: 0.8vw;
 	border-radius: 0;
 }
 
@@ -123,6 +123,21 @@ button.ui.button:hover {
 .AddNewPatient-Form .ui.form input[type=url]::placeholder,
 .AddNewPatient-Form .ui.form input[type=number]::placeholder {
 	color: rgba(20, 73, 0, 0.8);
+}
+
+.AddNewPatient-Form .DatePicker input {
+	width: 15.3vw;
+	position: relative;
+	height: 4vh;
+	background: rgba(0, 0, 0, 0.17);
+	color: #000000;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 200;
+	font-size: 0.8vw;
+	border-radius: 0;
+	margin: 0.8vh 0.8vw;
+	padding: 0.8vw;
+	border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 /* Styling checkboxes */

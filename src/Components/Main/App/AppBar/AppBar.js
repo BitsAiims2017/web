@@ -83,6 +83,87 @@ export default class AppBar extends React.Component {
 		}
 	}
 
+	renderInventoryTab() {
+		if (
+			this.props.userInfo.role === '"admin"' ||
+			this.props.userInfo.role === '"viewer"' ||
+			this.props.userInfo.role === '"doctor"' ||
+			this.props.userInfo.role === '"inventory"'
+		) {
+			return (
+				<li>
+					<RaisedButton
+						label="Inventory"
+						labelPosition="before"
+						labelStyle={{
+							textTransform: "none",
+							fontSize: "1vw",
+							lineHeight: "100%",
+							fontWeight: "200"
+						}}
+						style={{
+							backgroundColor: "transparent",
+							margin: "0",
+							lineHeight: "8vh"
+						}}
+						fullWidth={true}
+						buttonStyle={{
+							backgroundColor: "#492E00",
+							height: "6vh",
+							margin: "1vh 0",
+							padding: "0.1vh",
+							borderRadius: "0"
+						}}
+						labelColor={"#FFF"}
+						icon={InventoryIcon}
+						onClick={this.handleClick.bind(this, "inventory")}
+						key="inventory"
+					/>
+				</li>
+			);
+		}
+	}
+
+	renderPatientsTab() {
+		if (
+			this.props.userInfo.role === '"admin"' ||
+			this.props.userInfo.role === '"viewer"' ||
+			this.props.userInfo.role === '"doctor"'
+		) {
+			return (
+				<li>
+					<RaisedButton
+						label="Patients"
+						labelPosition="before"
+						labelStyle={{
+							textTransform: "none",
+							fontSize: "1vw",
+							lineHeight: "100%",
+							fontWeight: "200"
+						}}
+						style={{
+							backgroundColor: "transparent",
+							margin: "0",
+							lineHeight: "8vh"
+						}}
+						fullWidth={true}
+						buttonStyle={{
+							backgroundColor: "#00492A",
+							height: "6vh",
+							margin: "1vh 0",
+							padding: "0.1vh",
+							borderRadius: "0"
+						}}
+						labelColor={"#FFF"}
+						icon={patientsIcon}
+						onClick={this.handleClick.bind(this, "patients")}
+						key="patients"
+					/>
+				</li>
+			);
+		}
+	}
+
 	render() {
 		return (
 			<div className="AppBar">
@@ -117,64 +198,8 @@ export default class AppBar extends React.Component {
 								key="dashboard"
 							/>
 						</li>
-						<li>
-							<RaisedButton
-								label="Patients"
-								labelPosition="before"
-								labelStyle={{
-									textTransform: "none",
-									fontSize: "1vw",
-									lineHeight: "100%",
-									fontWeight: "200"
-								}}
-								style={{
-									backgroundColor: "transparent",
-									margin: "0",
-									lineHeight: "8vh"
-								}}
-								fullWidth={true}
-								buttonStyle={{
-									backgroundColor: "#00492A",
-									height: "6vh",
-									margin: "1vh 0",
-									padding: "0.1vh",
-									borderRadius: "0"
-								}}
-								labelColor={"#FFF"}
-								icon={patientsIcon}
-								onClick={this.handleClick.bind(this, "patients")}
-								key="patients"
-							/>
-						</li>
-						<li>
-							<RaisedButton
-								label="Inventory"
-								labelPosition="before"
-								labelStyle={{
-									textTransform: "none",
-									fontSize: "1vw",
-									lineHeight: "100%",
-									fontWeight: "200"
-								}}
-								style={{
-									backgroundColor: "transparent",
-									margin: "0",
-									lineHeight: "8vh"
-								}}
-								fullWidth={true}
-								buttonStyle={{
-									backgroundColor: "#492E00",
-									height: "6vh",
-									margin: "1vh 0",
-									padding: "0.1vh",
-									borderRadius: "0"
-								}}
-								labelColor={"#FFF"}
-								icon={InventoryIcon}
-								onClick={this.handleClick.bind(this, "inventory")}
-								key="inventory"
-							/>
-						</li>
+						{this.renderPatientsTab()}
+						{this.renderInventoryTab()}
 						{this.renderUserTab()}
 					</ul>
 				</MuiThemeProvider>

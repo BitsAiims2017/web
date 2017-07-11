@@ -1,12 +1,11 @@
 import React from "react";
-import "./AddNewPatient.css";
+import ReactDOM from "react-dom";
+import "./AddNewItem.css";
 import { Icon } from "semantic-ui-react";
 import { Form } from "semantic-ui-react";
 import $ from "jquery";
 import { Checkbox } from "office-ui-fabric-react/lib/Checkbox";
-import AllPatients from "../AllPatients/AllPatients";
-import DatePicker from "material-ui/DatePicker";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import AllItems from "../AllItems/AllItems";
 
 const IconStyles = {
 	fontSize: "3vw",
@@ -14,23 +13,23 @@ const IconStyles = {
 	padding: "0px",
 	margin: "0px",
 	top: "3vh",
-	color: "rgba(10, 88, 64, 0.79)"
+	color: "rgba(51, 10, 88, 0.79)"
 };
 
 const options = [
-	{ key: "male", text: "Male", value: "male" },
-	{ key: "female", text: "Female", value: "female" }
+	{ key: "admin", text: "Admin", value: "admin" },
+	{ key: "viewer", text: "Viewer", value: "viewer" }
 ];
 
-export default class AddNewPatient extends React.Component {
+export default class AddNewItem extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			id: "",
 			name: "",
-			dob: "",
-			blood_group: "",
-			gender: "",
+			category: "",
+			id: "",
+			quantity: "",
+			price: "",
 			token: this.props.userInfo.token.replace(/^"/, "").replace(/"$/, ""),
 			check: false
 		};
@@ -39,20 +38,20 @@ export default class AddNewPatient extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	render() {
-		let id, name, dob, blood_group, gender;
+		let name, category, id, quantity, price;
 		let check = this.state.check;
 		return (
-			<div className="AddNewPatient">
+			<div className="AddNewItem">
 				<div className="response-box" />
-				<div className="AddNewPatient-Form">
+				<div className="AddNewItem-Form">
 					<div className="IconPlace" style={{ textAlign: "center" }}>
-						<Icon name="add user" style={IconStyles} />
+						<Icon name="plus cart" style={IconStyles} />
 					</div>
 					<br />
-					<hr style={{ borderColor: "rgba(22, 82, 32, 0.48)" }} />
+					<hr style={{ borderColor: "rgba(156, 39, 176, 0.34)" }} />
 					<br />
 					<div className="Form">
-						<h3 className="Form-Heading">Add Patient</h3>
+						<h3 className="Form-Heading">Add Item</h3>
 						<Form onSubmit={this.handleSubmit}>
 							<Form.Group>
 								<Form.Input
@@ -68,39 +67,29 @@ export default class AddNewPatient extends React.Component {
 									name="name"
 									value={name}
 									onChange={this.handleChange}
-									required
 									autoComplete="off"
 								/>
 								<Form.Input
-									placeholder="DOB"
-									name="dob"
-									value={dob}
+									placeholder="Category"
+									name="category"
+									value={category}
 									onChange={this.handleChange}
 									autoComplete="off"
 								/>
-								{/*<MuiThemeProvider>
-								<DatePicker hintText="Landscape Inline Dialog" container="inline" mode="landscape" desktop={true} className="DatePicker" />
-								</MuiThemeProvider>*/}
 								<Form.Input
-									placeholder="Blood Group"
-									name="blood_group"
-									value={blood_group}
+									placeholder="Quantity"
+									name="quantity"
+									value={quantity}
 									onChange={this.handleChange}
 									autoComplete="off"
 								/>
-								<div className="Checkboxes">
-									<Checkbox
-										label="Male"
-										checked={check === "1"}
-										onChange={this.handleCheckboxChange.bind(this, "male")}
-										ref="male"
-									/>
-									<Checkbox
-										label="Female"
-										checked={check === "2"}
-										onChange={this.handleCheckboxChange.bind(this, "female")}
-									/>
-								</div>
+								<Form.Input
+									placeholder="Price"
+									name="price"
+									value={price}
+									onChange={this.handleChange}
+									autoComplete="off"
+								/>
 								<Form.Button
 									content="Submit"
 									onClick={this.handleClick.bind(this, "submit")}
@@ -120,29 +109,55 @@ export default class AddNewPatient extends React.Component {
 	}
 
 	handleCheckboxChange(ref, e) {
-		if (ref === "male") {
+		if (ref === "admin") {
 			if (this.state.check !== "1") {
 				this.setState({
 					check: "1",
-					gender: "male"
+					quantity: "admin"
 				});
 			} else {
 				this.setState({
 					check: "0",
-					gender: ""
+					quantity: ""
 				});
 			}
 		}
-		if (ref === "female") {
+		if (ref === "viewer") {
 			if (this.state.check !== "2") {
 				this.setState({
 					check: "2",
-					gender: "female"
+					quantity: "viewer"
 				});
 			} else {
 				this.setState({
 					check: "0",
-					gender: ""
+					quantity: ""
+				});
+			}
+		}
+		if (ref === "doctor") {
+			if (this.state.check !== "3") {
+				this.setState({
+					check: "3",
+					quantity: "doctor"
+				});
+			} else {
+				this.setState({
+					check: "0",
+					quantity: ""
+				});
+			}
+		}
+		if (ref === "inventory") {
+			if (this.state.check !== "4") {
+				this.setState({
+					check: "4",
+					quantity: "inventory"
+				});
+			} else {
+				this.setState({
+					check: "0",
+					quantity: ""
 				});
 			}
 		}
@@ -153,24 +168,26 @@ export default class AddNewPatient extends React.Component {
 	// Function to handle things that should happen after submit.
 	handleSubmit(e) {
 		e.preventDefault();
-		let { id, name, dob, blood_group, gender, token } = this.state;
-		let data = { id, name, dob, blood_group, gender, token };
-		this.postPatient(data);
+		let { name, category, id, quantity, price } = this.state;
+		let data = { name, category, id, quantity, price };
+		console.log(data)
+		this.postItem(data);
 		this.setState({
-			gender: "",
+			quantity: "",
 			check: false
 		});
+		this.props.refreshAllItems();
 	}
 
-	postPatient = data => {
+	postItem = data => {
 		$.ajax({
 			type: "POST",
-			url: "http://localhost:2000/patient/",
+			url: "http://localhost:2000/item",
 			data: data,
 			datatype: "application/json"
 		})
 			.done(res => {
-				var responseBox = $(".response-box");
+				var responseBox = $(".AddNewItem .response-box");
 				if (responseBox.hasClass("response-failed")) {
 					responseBox.removeClass("response-failed");
 				}
@@ -196,8 +213,8 @@ export default class AddNewPatient extends React.Component {
 				}
 
 				if (err.status === 409) {
-					// If dob is correct, but blood_group is wrong.
-					let responseMessage = `Patient already exists`;
+					// If category is correct, but id is wrong.
+					let responseMessage = `Item already exists`;
 					console.log(responseMessage);
 				}
 				if (err.status === 500) {

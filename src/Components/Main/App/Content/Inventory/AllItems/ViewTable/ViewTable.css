@@ -1,0 +1,48 @@
+.ViewTable {
+	-webkit-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
+	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
+	-webkit-animation: appear 0.5s;
+	animation: appear 0.5s;
+	transform-origin: 0% 0%;
+}
+
+@-webkit-keyframes appear {
+	from {
+		opacity: 0;
+		top: 6vh;
+	}
+	to {
+		opacity: 1;
+		top: 3vh;
+	}
+}
+@-o-keyframes appear {
+	from {
+		opacity: 0;
+		top: 6vh;
+	}
+	to {
+		opacity: 1;
+		top: 3vh;
+	}
+}
+@-moz-keyframes appear {
+	from {
+		opacity: 0;
+		top: 6vh;
+	}
+	to {
+		opacity: 1;
+		top: 3vh;
+	}
+}
+@keyframes appear {
+	from {
+		opacity: 0;
+		top: 6vh;
+	}
+	to {
+		opacity: 1;
+		top: 3vh;
+	}
+}
