@@ -1,11 +1,11 @@
 import React from "react";
-import "./EditUser.css";
+import "./EditPatient.css";
 import ReactDOM from "react-dom";
 import { Icon } from "semantic-ui-react";
 import { Form } from "semantic-ui-react";
 import $ from "jquery";
 import { Checkbox } from "office-ui-fabric-react/lib/Checkbox";
-import AllUsers from "../AllUsers/AllUsers";
+import AllPatients from "../AllPatients/AllPatients";
 
 const IconStyles = {
 	fontSize: "3vw",
@@ -13,22 +13,23 @@ const IconStyles = {
 	padding: "0px",
 	margin: "0px",
 	top: "3vh",
-	color: "rgba(51, 10, 88, 0.79)"
+	color: "rgba(10, 88, 64, 0.79)"
 };
 
 const options = [
-	{ key: "admin", text: "Admin", value: "admin" },
-	{ key: "viewer", text: "Viewer", value: "viewer" }
+	{ key: "male", text: "Male", value: "male" },
+	{ key: "female", text: "Female", value: "female" }
 ];
 
-export default class EditUser extends React.Component {
+export default class EditPatient extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			id: "",
 			name: "",
-			username: "",
-			password: "",
-			role: "",
+			dob: "",
+			blood_group: "",
+			gender: "",
 			token: this.props.userInfo.token.replace(/^"/, "").replace(/"$/, ""),
 			check: false
 		};
@@ -37,12 +38,12 @@ export default class EditUser extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	render() {
-		let name, username, password, role;
+		let name, id, dob, blood_group, gender;
 		let check = this.state.check;
 		return (
-			<div className="EditUser">
+			<div className="EditPatient">
 				<div className="response-box" />
-				<div className="EditUser-Form">
+				<div className="EditPatient-Form">
 					<div className="IconPlace" style={{ textAlign: "center" }}>
 						<Icon name="user circle outline" style={IconStyles} />
 					</div>
@@ -50,13 +51,13 @@ export default class EditUser extends React.Component {
 					<hr style={{ borderColor: "rgba(156, 39, 176, 0.34)" }} />
 					<br />
 					<div className="Form">
-						<h3 className="Form-Heading">Enter Username</h3>
+						<h3 className="Form-Heading">Enter Patient ID</h3>
 						<Form onSubmit={this.handleSubmit}>
 							<Form.Group>
 								<Form.Input
-									placeholder="Username"
-									name="username"
-									value={username}
+									placeholder="ID"
+									name="id"
+									value={id}
 									onChange={this.handleChange}
 									required
 									autoComplete="off"
@@ -68,39 +69,37 @@ export default class EditUser extends React.Component {
 									name="name"
 									value={name}
 									onChange={this.handleChange}
+									required
 									autoComplete="off"
 								/>
 								<Form.Input
-									placeholder="Password"
-									name="password"
-									value={password}
+									placeholder="DOB"
+									name="dob"
+									value={dob}
+									onChange={this.handleChange}
+									autoComplete="off"
+								/>
+								{/*<MuiThemeProvider>
+								<DatePicker hintText="Landscape Inline Dialog" container="inline" mode="landscape" desktop={true} className="DatePicker" />
+								</MuiThemeProvider>*/}
+								<Form.Input
+									placeholder="Blood Group"
+									name="blood_group"
+									value={blood_group}
 									onChange={this.handleChange}
 									autoComplete="off"
 								/>
 								<div className="Checkboxes">
 									<Checkbox
-										label="Admin"
+										label="Male"
 										checked={check === "1"}
-										onChange={this.handleCheckboxChange.bind(this, "admin")}
-										ref="admin"
+										onChange={this.handleCheckboxChange.bind(this, "male")}
+										ref="male"
 									/>
 									<Checkbox
-										label="Viewer"
+										label="Female"
 										checked={check === "2"}
-										onChange={this.handleCheckboxChange.bind(this, "viewer")}
-									/>
-								</div>
-								<div className="Checkboxes">
-									<Checkbox
-										label="Doctor"
-										checked={check === "3"}
-										onChange={this.handleCheckboxChange.bind(this, "doctor")}
-										ref="admin"
-									/>
-									<Checkbox
-										label="Inventory"
-										checked={check === "4"}
-										onChange={this.handleCheckboxChange.bind(this, "inventory")}
+										onChange={this.handleCheckboxChange.bind(this, "female")}
 									/>
 								</div>
 								<div className="Save">
@@ -136,12 +135,12 @@ export default class EditUser extends React.Component {
 			if (this.state.check !== "1") {
 				this.setState({
 					check: "1",
-					role: "admin"
+					blood_group: "admin"
 				});
 			} else {
 				this.setState({
 					check: "0",
-					role: ""
+					blood_group: ""
 				});
 			}
 		}
@@ -149,12 +148,12 @@ export default class EditUser extends React.Component {
 			if (this.state.check !== "2") {
 				this.setState({
 					check: "2",
-					role: "viewer"
+					blood_group: "viewer"
 				});
 			} else {
 				this.setState({
 					check: "0",
-					role: ""
+					blood_group: ""
 				});
 			}
 		}
@@ -162,12 +161,12 @@ export default class EditUser extends React.Component {
 			if (this.state.check !== "3") {
 				this.setState({
 					check: "3",
-					role: "doctor"
+					blood_group: "doctor"
 				});
 			} else {
 				this.setState({
 					check: "0",
-					role: ""
+					blood_group: ""
 				});
 			}
 		}
@@ -175,12 +174,12 @@ export default class EditUser extends React.Component {
 			if (this.state.check !== "4") {
 				this.setState({
 					check: "4",
-					role: "inventory"
+					blood_group: "inventory"
 				});
 			} else {
 				this.setState({
 					check: "0",
-					role: ""
+					blood_group: ""
 				});
 			}
 		}
@@ -191,59 +190,56 @@ export default class EditUser extends React.Component {
 	// Function to handle things that should happen after submit.
 	handleSubmit(e) {
 		e.preventDefault();
-		let { name, username, password, role, token } = this.state;
-		let data = { name, username, password, role, token };
+		let { name, id, dob, blood_group, token } = this.state;
+		let data = { name, id, dob, blood_group, token };
 
-		// 	If the user presses DELETE
+		// 	If the patient presses DELETE
 		if (this.props.activeItem === "delete") {
-			this.props.deleteRequest(
-				`http://localhost:2000/users/${username}`,
-				res => {
-					var responseBox = $(".EditUser .response-box");
+			this.props.deleteRequest(`http://localhost:2000/patients/${id}`, res => {
+				var responseBox = $(".EditPatient .response-box");
 
-					if (res.status === 202) {
-						if (responseBox.hasClass("response-failed")) {
-							responseBox.removeClass("response-failed");
-						}
-						responseBox.addClass("response-success");
-					} else {
-						if (responseBox.hasClass("response-success")) {
-							responseBox.removeClass("response-success");
-						}
-						responseBox.addClass("response-failed");
-						if (res.status === 400) {
-							// Incomplete / Wrong Parameters
-							let responseMessage = `Incomplete/Wrong Parameters`;
-							console.log(responseMessage);
-							console.log(res);
-						}
-						if (res.status === 401) {
-							// No permission
-							let responseMessage = `The request is not authorized`;
-							console.log(responseMessage);
-						}
-						if (res.status === 409) {
-							// If username is correct, but password is wrong.
-							let responseMessage = `User already exists`;
-							console.log(responseMessage);
-						}
-						if (res.status === 500) {
-							// If empty form is submitted
-							let responseMessage = `Internal Error`;
-							console.log(responseMessage);
-						}
+				if (res.status === 202) {
+					if (responseBox.hasClass("response-failed")) {
+						responseBox.removeClass("response-failed");
+					}
+					responseBox.addClass("response-success");
+				} else {
+					if (responseBox.hasClass("response-success")) {
+						responseBox.removeClass("response-success");
+					}
+					responseBox.addClass("response-failed");
+					if (res.status === 400) {
+						// Incomplete / Wrong Parameters
+						let responseMessage = `Incomplete/Wrong Parameters`;
+						console.log(responseMessage);
+						console.log(res);
+					}
+					if (res.status === 401) {
+						// No permission
+						let responseMessage = `The request is not authorized`;
+						console.log(responseMessage);
+					}
+					if (res.status === 409) {
+						// If id is correct, but dob is wrong.
+						let responseMessage = `Patient already exists`;
+						console.log(responseMessage);
+					}
+					if (res.status === 500) {
+						// If empty form is submitted
+						let responseMessage = `Internal Error`;
+						console.log(responseMessage);
 					}
 				}
-			);
+			});
 		}
 
-		// If the user presses SAVE
+		// If the patient presses SAVE
 		if (this.props.activeItem === "submit") {
 			this.props.putRequest(
-				`http://localhost:2000/users/${username}`,
+				`http://localhost:2000/patients/${id}`,
 				data,
 				res => {
-					var responseBox = $(".EditUser .response-box");
+					var responseBox = $(".EditPatient .response-box");
 
 					if (res.status === 200) {
 						if (responseBox.hasClass("response-failed")) {
@@ -267,8 +263,8 @@ export default class EditUser extends React.Component {
 							console.log(responseMessage);
 						}
 						if (res.status === 409) {
-							// If username is correct, but password is wrong.
-							let responseMessage = `User already exists`;
+							// If id is correct, but dob is wrong.
+							let responseMessage = `Patient already exists`;
 							console.log(responseMessage);
 						}
 						if (res.status === 500) {
@@ -281,9 +277,9 @@ export default class EditUser extends React.Component {
 			);
 		}
 		this.setState({
-			role: "",
+			blood_group: "",
 			check: false
 		});
-		this.props.refreshAllUsers();
+		this.props.refreshAllPatients();
 	}
 }

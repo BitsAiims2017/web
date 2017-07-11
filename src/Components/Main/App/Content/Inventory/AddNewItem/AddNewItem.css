@@ -1,9 +1,9 @@
-.AddNewUser-Form {
+.AddNewItem-Form {
 	background: white;
 	-webkit-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
 	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
 	width: 18vw;
-	height: 56vh;
+	height: 53vh;
 	position: absolute;
 	top: 3vh;
 	left: 2vw;
@@ -12,7 +12,7 @@
 	animation: comeIn 0.3s ease-out;
 }
 
-.AddNewUser-Form h3.Form-Heading {
+.AddNewItem-Form h3.Form-Heading {
 	margin: 0 1vw 2vh 0;
 	font-size: 1vw;
 	font-family: 'Roboto', sans-serif;
@@ -21,7 +21,7 @@
 	text-align: center;
 }
 
-.AddNewUser-Form .Form button.ui.button {
+.AddNewItem-Form .Form button.ui.button {
 	background: rgb(55, 18, 72);
 	border-radius: 0;
 	font-size: 1.4vw;
@@ -35,18 +35,18 @@
 	transition: all 0.1s;
 }
 
-.AddNewUser-Form .ui .form {
+.AddNewItem-Form .ui .form {
 	height: 37vh;
 	position: relative;
 	top: 3vh;
 }
 
-.AddNewUser-Form .ui.form .fields {
+.AddNewItem-Form .ui.form .fields {
 	display: flex;
 	flex-direction: column;
 }
 
-.AddNewUser-Form .Form .ui.form .field .ui.input input,
+.AddNewItem-Form .Form .ui.form .field .ui.input input,
 .ui.form .fields .field .ui.input input {
 	width: auto;
 	height: 4vh;
@@ -59,80 +59,80 @@
 	border-radius: 0;
 }
 
-.AddNewUser-Form .Form .ui.form .field:last-child,
+.AddNewItem-Form .Form .ui.form .field:last-child,
 .ui.form .fields:last-child .field {
 	margin-bottom: 0;
 	text-align: center;
 }
 
-.AddNewUser-Form button.ui.button,
+.AddNewItem-Form button.ui.button,
 button.ui.button:active,
 button.ui.button:focus {
 	background-color: rgba(144, 17, 42, 0.4);
 	color: rgba(255, 255, 255, .9);
 }
 
-.AddNewUser-Form button.ui.button,
+.AddNewItem-Form button.ui.button,
 button.ui.button:active,
 button.ui.button:hover {
 	background-color: rgba(159, 1, 110, 0.6);
 	color: rgba(255, 255, 255, .9);
 }
 
-.AddNewUser-Form .ui.form input:not([type]):focus,
-.AddNewUser-Form .ui.form input[type=text]:focus,
-.AddNewUser-Form .ui.form input[type=email]:focus,
-.AddNewUser-Form .ui.form input[type=search]:focus,
-.AddNewUser-Form .ui.form input[type=password]:focus,
-.AddNewUser-Form .ui.form input[type=date]:focus,
-.AddNewUser-Form .ui.form input[type=datetime-local]:focus,
-.AddNewUser-Form .ui.form input[type=tel]:focus,
-.AddNewUser-Form .ui.form input[type=time]:focus,
-.AddNewUser-Form .ui.form input[type=file]:focus,
-.AddNewUser-Form .ui.form input[type=url]:focus,
-.AddNewUser-Form .ui.form input[type=number]:focus {
+.AddNewItem-Form .ui.form input:not([type]):focus,
+.AddNewItem-Form .ui.form input[type=text]:focus,
+.AddNewItem-Form .ui.form input[type=email]:focus,
+.AddNewItem-Form .ui.form input[type=search]:focus,
+.AddNewItem-Form .ui.form input[type=password]:focus,
+.AddNewItem-Form .ui.form input[type=date]:focus,
+.AddNewItem-Form .ui.form input[type=datetime-local]:focus,
+.AddNewItem-Form .ui.form input[type=tel]:focus,
+.AddNewItem-Form .ui.form input[type=time]:focus,
+.AddNewItem-Form .ui.form input[type=file]:focus,
+.AddNewItem-Form .ui.form input[type=url]:focus,
+.AddNewItem-Form .ui.form input[type=number]:focus {
 	border: 1px solid #c493ea;
 }
 
-.AddNewUser-Form .ui.form input:not([type])::selection,
-.AddNewUser-Form .ui.form input[type=text]::selection,
-.AddNewUser-Form .ui.form input[type=email]::selection,
-.AddNewUser-Form .ui.form input[type=search]::selection,
-.AddNewUser-Form .ui.form input[type=password]::selection,
-.AddNewUser-Form .ui.form input[type=date]::selection,
-.AddNewUser-Form .ui.form input[type=datetime-local]::selection,
-.AddNewUser-Form .ui.form input[type=tel]::selection,
-.AddNewUser-Form .ui.form input[type=time]::selection,
-.AddNewUser-Form .ui.form input[type=file]::selection,
-.AddNewUser-Form .ui.form input[type=url]::selection,
-.AddNewUser-Form .ui.form input[type=number]::selection {
+.AddNewItem-Form .ui.form input:not([type])::selection,
+.AddNewItem-Form .ui.form input[type=text]::selection,
+.AddNewItem-Form .ui.form input[type=email]::selection,
+.AddNewItem-Form .ui.form input[type=search]::selection,
+.AddNewItem-Form .ui.form input[type=password]::selection,
+.AddNewItem-Form .ui.form input[type=date]::selection,
+.AddNewItem-Form .ui.form input[type=datetime-local]::selection,
+.AddNewItem-Form .ui.form input[type=tel]::selection,
+.AddNewItem-Form .ui.form input[type=time]::selection,
+.AddNewItem-Form .ui.form input[type=file]::selection,
+.AddNewItem-Form .ui.form input[type=url]::selection,
+.AddNewItem-Form .ui.form input[type=number]::selection {
 	background: rgba(0, 0, 0, 0.8);
 	color: whitesmoke;
 }
-.AddNewUser-Form .ui.form input:not([type])::placeholder,
-.AddNewUser-Form .ui.form input[type=text]::placeholder,
-.AddNewUser-Form .ui.form input[type=email]::placeholder,
-.AddNewUser-Form .ui.form input[type=search]::placeholder,
-.AddNewUser-Form .ui.form input[type=password]::placeholder,
-.AddNewUser-Form .ui.form input[type=date]::placeholder,
-.AddNewUser-Form .ui.form input[type=datetime-local]::placeholder,
-.AddNewUser-Form .ui.form input[type=tel]::placeholder,
-.AddNewUser-Form .ui.form input[type=time]::placeholder,
-.AddNewUser-Form .ui.form input[type=file]::placeholder,
-.AddNewUser-Form .ui.form input[type=url]::placeholder,
-.AddNewUser-Form .ui.form input[type=number]::placeholder {
+.AddNewItem-Form .ui.form input:not([type])::placeholder,
+.AddNewItem-Form .ui.form input[type=text]::placeholder,
+.AddNewItem-Form .ui.form input[type=email]::placeholder,
+.AddNewItem-Form .ui.form input[type=search]::placeholder,
+.AddNewItem-Form .ui.form input[type=password]::placeholder,
+.AddNewItem-Form .ui.form input[type=date]::placeholder,
+.AddNewItem-Form .ui.form input[type=datetime-local]::placeholder,
+.AddNewItem-Form .ui.form input[type=tel]::placeholder,
+.AddNewItem-Form .ui.form input[type=time]::placeholder,
+.AddNewItem-Form .ui.form input[type=file]::placeholder,
+.AddNewItem-Form .ui.form input[type=url]::placeholder,
+.AddNewItem-Form .ui.form input[type=number]::placeholder {
 	color: rgba(75, 2, 64, 0.8);
 }
 
 /* Styling checkboxes */
 
-.AddNewUser-Form .Checkboxes {
+.AddNewItem-Form .Checkboxes {
 	display: flex;
 	flex-direction: row;
 	margin-top: 1vh;
 }
 
-.AddNewUser-Form .root_79db315f {
+.AddNewItem-Form .root_79db315f {
 	box-sizing: border-box;
 	font-family: 'Roboto';
 	min-height: 36px;
@@ -141,7 +141,7 @@ button.ui.button:hover {
 	margin: 0px 1.5vw;
 }
 
-.AddNewUser-Form .textLabel_79db315f {
+.AddNewItem-Form .textLabel_79db315f {
 	color: #44094e;
 	font-size: 0.9vw;
 	font-weight: 200;
@@ -150,7 +150,7 @@ button.ui.button:hover {
 	transition: all 0.3s;
 }
 
-.AddNewUser-Form .root_79db315f:hover .textLabel_79db315f {
+.AddNewItem-Form .root_79db315f:hover .textLabel_79db315f {
 	color: #44094e;
 }
 
@@ -189,16 +189,16 @@ button.ui.button:hover {
 
 /* Styling response box */
 
-.AddNewUser .response-box {
+.AddNewItem .response-box {
 	width: 18vw;
 	height: 20vh;
 	position: absolute;
-	top: 59vh;
+	top: 56vh;
 	left: 2vw;
 	opacity: 0;
 }
 
-.AddNewUser .response-success {
+.AddNewItem .response-success {
 	background: rgba(21, 93, 0, 0.75);
 	border-top: 1px solid rgba(255, 255, 255, 0.35);
 	-webkit-animation: responseComeIn 0.3s ease-out;
@@ -206,7 +206,7 @@ button.ui.button:hover {
 	opacity: 1;
 }
 
-.AddNewUser .response-failed {
+.AddNewItem .response-failed {
 	background: rgba(140, 24, 24, 0.7);
 	border-top: 1px solid rgba(255, 255, 255, 0.19);
 	-webkit-animation: responseComeIn 0.3s ease-out;
@@ -221,7 +221,7 @@ button.ui.button:hover {
 	}
 	to {
 		opacity: 1;
-		top: 59vh;
+		top: 56vh;
 	}
 }
 
@@ -232,7 +232,7 @@ button.ui.button:hover {
 	}
 	to {
 		opacity: 1;
-		top: 59vh;
+		top: 56vh;
 	}
 }
 
@@ -243,6 +243,6 @@ button.ui.button:hover {
 	}
 	to {
 		opacity: 1;
-		top: 59vh;
+		top: 56vh;
 	}
 }
