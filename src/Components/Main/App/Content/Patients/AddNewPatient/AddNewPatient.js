@@ -29,8 +29,8 @@ export default class AddNewPatient extends React.Component {
 			id: "",
 			name: "",
 			dob: "",
-			blood_group: "",
 			gender: "",
+			blood_group: "",
 			token: this.props.userInfo.token.replace(/^"/, "").replace(/"$/, ""),
 			check: false
 		};
@@ -153,8 +153,8 @@ export default class AddNewPatient extends React.Component {
 	// Function to handle things that should happen after submit.
 	handleSubmit(e) {
 		e.preventDefault();
-		let { id, name, dob, blood_group, gender, token } = this.state;
-		let data = { id, name, dob, blood_group, gender, token };
+		let { id, name, dob, gender, blood_group, token } = this.state;
+		let data = { id, name, dob,  gender, blood_group, token };
 		this.postPatient(data);
 		this.setState({
 			gender: "",
@@ -165,7 +165,7 @@ export default class AddNewPatient extends React.Component {
 	postPatient = data => {
 		$.ajax({
 			type: "POST",
-			url: "http://localhost:2000/patient/",
+			url: "http://localhost:2000/patients/",
 			data: data,
 			datatype: "application/json"
 		})

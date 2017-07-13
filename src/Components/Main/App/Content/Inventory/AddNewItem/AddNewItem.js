@@ -182,7 +182,7 @@ export default class AddNewItem extends React.Component {
 	postItem = data => {
 		$.ajax({
 			type: "POST",
-			url: "http://localhost:2000/item",
+			url: "http://localhost:2000/items",
 			data: data,
 			datatype: "application/json"
 		})

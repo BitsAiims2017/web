@@ -24,7 +24,7 @@ const TABLE_COLUMNS_SORT_STYLE = [
     label: "Category",
     sortable: true
   },
-    {
+  {
     key: "quantity",
     label: "Quantity",
     sortable: true
@@ -65,18 +65,21 @@ export default class ViewTable extends React.Component {
   }
 
   getAllInventoryData() {
-    this.props.getRequest("http://localhost:2000/item/", res => {
-      for (var i = 0, upperLimit = res.length; i < upperLimit; i += 1) {
-        res[i].date_added = `${res[i].joined.day} / ${res[i].joined.month +
-          1} / ${res[i].joined.year} `; // - ${res[i].joined.hour}:${res[i].joined.minute}:${res[i].joined.second}`;
-        res[i].id = i + 1;
-      }
-      fakeDB
-        .defaults({
-          data: [...res]
-        })
-        .value();
-    });
+    this.props.getRequest(
+      "http://localhost:2000/items",
+      res => {
+        for (var i = 0, upperLimit = res.items.length; i < upperLimit; i += 1) {
+          res.items[i].id = i + 1;
+          res.items[i].date_added = res.items[i].date_added.slice(0, 10).replace(/-/g, " / ");
+        }
+        fakeDB
+          .defaults({
+            data: [...res.items]
+          })
+          .value();
+      },
+      { page: this.state.currentPage, size: this.state.total }
+    );
   }
 
   handleData(page, perPage, sort, order, filter, callback) {

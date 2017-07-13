@@ -1,9 +1,134 @@
 .Dashboard {
-    width: 100vw;
-    height: 92vh;
-    background: whitesmoke;
-    position: absolute;
-    top: 0vh;
-    font-family: 'Roboto';
-    animation: appear 0.3s;
+	width: 100vw;
+	height: 92vh;
+	background: whitesmoke;
+	position: absolute;
+	top: 0vh;
+	font-family: 'Roboto';
+	animation: appear;
+}
+
+.Overview-Container {
+	width: 23vw;
+	height: 20vw;
+	background: white;
+	padding: 1vw;
+	position: absolute;
+	top: 3vh;
+	left: 1vw;
+	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
+	animation: comeIn 0.3s;
+}
+.Users-Container {
+	width: 70vw;
+	height: 20vw;
+	background: white;
+	padding: 1vw;
+	position: absolute;
+	top: 3vh;
+	left: 25vw;
+	-webkit-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
+	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
+	animation: comeIn 0.6s;
+}
+
+.Inventory-Container {
+	width: 33vw;
+	height: 21vw;
+	background: white;
+	padding: 1vw;
+	position: absolute;
+	top: 45vh;
+	left: 62vw;
+	-webkit-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
+	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
+	-webkit-animation: appear2 1s;
+}
+
+.Patients-Container {
+	width: 60vw;
+	height: 20vw;
+	background: white;
+	padding: 1vw;
+	position: absolute;
+	top: 45vh;
+	left: 1vw;
+	-webkit-box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
+	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.4);
+	-webkit-animation: appear2 1s;
+}
+
+.Chart-heading {
+	font-family: 'Roboto';
+	font-size: 1.4vw;
+	font-weight: 200;
+	color: brown;
+	text-align: center;
+	margin-top: 1vh;
+}
+
+@-webkit-keyframes comeIn {
+	from {
+		opacity: 0;
+		top: 7vh;
+	}
+	to {
+		opacity: 1;
+		top: 3vh;
+	}
+}
+
+@-moz-keyframes comeIn {
+	from {
+		opacity: 0;
+		top: 7vh;
+	}
+	to {
+		opacity: 1;
+		top: 3vh;
+	}
+}
+
+@keyframes comeIn {
+	from {
+		opacity: 0;
+		top: 7vh;
+	}
+	to {
+		opacity: 1;
+		top: 3vh;
+	}
+}
+
+@-webkit-keyframes appear2 {
+	from {
+		opacity: 0;
+		top: 50vh;
+	}
+	to {
+		opacity: 1;
+		top: 45vh;
+	}
+}
+
+@-moz-keyframes appear2 {
+	from {
+		opacity: 0;
+		top: 50vh;
+	}
+	to {
+		opacity: 1;
+		top: 45vh;
+	}
+}
+
+@keyframes appear2 {
+	from {
+		opacity: 0;
+		top: 50vh;
+	}
+	to {
+		opacity: 1;
+		top: 45vh;
+	}
 }
