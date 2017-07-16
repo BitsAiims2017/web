@@ -20,8 +20,8 @@ const TABLE_COLUMNS_SORT_STYLE = [
     sortable: true
   },
   {
-    key: "dob",
-    label: "DOB",
+    key: "age",
+    label: "Age",
     sortable: true
   },
   {
@@ -60,18 +60,19 @@ export default class ViewTable extends React.Component {
   }
 
   getAllPatientData() {
-    this.props.getRequest("http://localhost:2000/patient/", res => {
+    this.props.getRequest("http://localhost:2000/patients", res => {
       for (var i = 0, upperLimit = res.length; i < upperLimit; i += 1) {
         res[i].date = `${res[i].joined.day} / ${res[i].joined.month +
           1} / ${res[i].joined.year} `; // - ${res[i].joined.hour}:${res[i].joined.minute}:${res[i].joined.second}`;
         res[i].id = i + 1;
       }
+      console.log(res)
       fakeDB
         .defaults({
-          data: [...res]
+          data: [...res.patients]
         })
         .value();
-    });
+    }, {page: this.state.currentPage, size: 100});
   }
 
   handleData(page, perPage, sort, order, filter, callback) {

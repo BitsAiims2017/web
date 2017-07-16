@@ -71,15 +71,17 @@ class Main extends Component {
 			});
 	}
 
-	getRequest(url, done) {
+	getRequest(url, done, options) {
+		let params = options || {};
 		var token = localStorage["aiims-login-token"]
 			.replace(/^"/, "")
 			.replace(/"$/, "");
+		params.token = token;
 		$.ajax({
 			url: url,
 			type: "GET",
 			datatype: "application/json",
-			data: { token: token }
+			data: params
 		})
 			.done(res => {
 				done(res);

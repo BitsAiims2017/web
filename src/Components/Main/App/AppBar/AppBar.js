@@ -233,12 +233,7 @@ export default class AppBar extends React.Component {
 								desktop={true}
 								listStyle={{ background: "#111" }}
 							>
-
-								<MenuItem
-									primaryText="Feedback"
-									onClick={this.handleClick.bind(this, "feedback")}
-									key="feedback"
-								/>
+								{/*
 								<MenuItem
 									primaryText="About"
 									onClick={this.handleClick.bind(this, "about")}
@@ -248,7 +243,7 @@ export default class AppBar extends React.Component {
 									primaryText="Shortcuts"
 									onClick={this.handleClick.bind(this, "shortcuts")}
 									key="shortcuts"
-								/>
+								/> */}
 								<MenuItem
 									primaryText="Log out"
 									onClick={this.props.forgetUserInfo}

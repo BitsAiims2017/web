@@ -6,6 +6,7 @@ import { Form } from "semantic-ui-react";
 import $ from "jquery";
 import { Checkbox } from "office-ui-fabric-react/lib/Checkbox";
 import AllPatients from "../AllPatients/AllPatients";
+import { Button, Header, Modal } from "semantic-ui-react";
 
 const IconStyles = {
 	fontSize: "3vw",
@@ -31,12 +32,65 @@ export default class EditPatient extends React.Component {
 			blood_group: "",
 			gender: "",
 			token: this.props.userInfo.token.replace(/^"/, "").replace(/"$/, ""),
-			check: false
+			check: "0",
+			modelOpen: false,
+			recievedPatientData: {
+				id: "",
+				name: "",
+				dob: "",
+				blood_group: "",
+				gender: "",
+				open_consultation: "",
+				reports: []
+			}
 		};
 		this.handleChange = this.handleChange.bind(this);
-
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
+
+	handleOpen = (i, e) => {
+		this.props.selectItem(i);
+		let { name, id, dob, blood_group, token } = this.state;
+		let data = { name, id, dob, blood_group, token };
+		// If the user presses REPORTS`
+		this.props.getRequest(
+			`http://localhost:2000/patients`,
+			res => {
+				for (
+					var i = 0, upperLimit = res.patients.length;
+					i < upperLimit;
+					i += 1
+				) {
+					if (res.patients[i].id === id) {
+						this.setState({
+							recievedPatientData: {
+								id: res.patients[i].id,
+								name: res.patients[i].name,
+								dob: res.patients[i].dob,
+								blood_group: res.patients[i].blood_group,
+								gender: res.patients[i].gender,
+								open_consultation: res.patients[i].open_consultation,
+								reports: res.patients[i].reports,
+								age: res.patients[i].age
+							}
+						});
+					}
+				}
+				console.log(this.state.recievedPatientData);
+			},
+			{ id: id }
+		);
+
+		this.setState({
+			modalOpen: true
+		});
+	};
+
+	handleClose = e =>
+		this.setState({
+			modalOpen: false
+		});
+
 	render() {
 		let name, id, dob, blood_group, gender;
 		let check = this.state.check;
@@ -64,12 +118,85 @@ export default class EditPatient extends React.Component {
 								/>
 								<br />
 								<h3 className="Form-Heading">Edit Details</h3>
+								<div className="Reports">
+									<Modal
+										trigger={
+											<Form.Button
+												content="Reports"
+												onClick={this.handleOpen.bind(this, "reports")}
+												key="reports"
+											/>
+										}
+										open={this.state.modalOpen}
+										closeIcon="close"
+										onClose={this.handleClose}
+										basic
+										size="medium"
+									>
+										<Header icon="archive" content="Patient Report" />
+										<Modal.Content>
+											{(() => {
+												if (this.state.id === "") {
+													return (
+														<p>
+															Please enter a valid patient ID to see reports.
+														</p>
+													);
+												} else {
+													return (
+														<div>
+															<span>
+																<h3>ID</h3>
+																<p>{this.state.recievedPatientData.id}</p>
+															</span>
+															<br />
+															<span>
+																<h3>Name</h3>
+																<p>{this.state.recievedPatientData.name}</p>
+															</span>
+															<br />
+															<span>
+																<h3>Age</h3>
+																<p>{this.state.recievedPatientData.age}</p>
+															</span>
+															<br />
+															<span>
+																<h3>Blood Group</h3>
+																<p>
+																	{this.state.recievedPatientData.blood_group}
+																</p>
+															</span>
+															<br />
+															<span>
+																<p>Reports</p>
+																<p>{this.state.recievedPatientData.reports}</p>
+															</span>b
+														</div>
+													);
+												}
+											})()}
+										</Modal.Content>
+										<Modal.Actions>
+											{/*}
+											<Button
+												basic
+												color="red"
+												inverted
+												onClick={this.handleClose}
+											>
+												<Icon name="remove" /> No
+											</Button> */}
+											<Button color="green" inverted onClick={this.handleClose}>
+												<Icon name="checkmark" /> Okay
+											</Button>
+										</Modal.Actions>
+									</Modal>
+								</div>
 								<Form.Input
 									placeholder="Name"
 									name="name"
 									value={name}
 									onChange={this.handleChange}
-									required
 									autoComplete="off"
 								/>
 								<Form.Input
@@ -79,9 +206,6 @@ export default class EditPatient extends React.Component {
 									onChange={this.handleChange}
 									autoComplete="off"
 								/>
-								{/*<MuiThemeProvider>
-								<DatePicker hintText="Landscape Inline Dialog" container="inline" mode="landscape" desktop={true} className="DatePicker" />
-								</MuiThemeProvider>*/}
 								<Form.Input
 									placeholder="Blood Group"
 									name="blood_group"
@@ -128,62 +252,36 @@ export default class EditPatient extends React.Component {
 
 	handleClick(i, e) {
 		this.props.selectItem(i);
+		console.log(i);
 	}
 
 	handleCheckboxChange(ref, e) {
-		if (ref === "admin") {
+		if (ref === "male") {
 			if (this.state.check !== "1") {
 				this.setState({
 					check: "1",
-					blood_group: "admin"
+					gender: "male"
 				});
 			} else {
 				this.setState({
 					check: "0",
-					blood_group: ""
+					gender: ""
 				});
 			}
 		}
-		if (ref === "viewer") {
+		if (ref === "female") {
 			if (this.state.check !== "2") {
 				this.setState({
 					check: "2",
-					blood_group: "viewer"
+					gender: "female"
 				});
 			} else {
 				this.setState({
 					check: "0",
-					blood_group: ""
+					gender: ""
 				});
 			}
 		}
-		if (ref === "doctor") {
-			if (this.state.check !== "3") {
-				this.setState({
-					check: "3",
-					blood_group: "doctor"
-				});
-			} else {
-				this.setState({
-					check: "0",
-					blood_group: ""
-				});
-			}
-		}
-		if (ref === "inventory") {
-			if (this.state.check !== "4") {
-				this.setState({
-					check: "4",
-					blood_group: "inventory"
-				});
-			} else {
-				this.setState({
-					check: "0",
-					blood_group: ""
-				});
-			}
-		}
-		console.log(ref);
 	}
 	handleChange = (e, { name, value }) => this.setState({ [name]: value });
 
@@ -193,7 +291,7 @@ export default class EditPatient extends React.Component {
 		let { name, id, dob, blood_group, token } = this.state;
 		let data = { name, id, dob, blood_group, token };
 
-		// 	If the patient presses DELETE
+		// 	If the user presses DELETE
 		if (this.props.activeItem === "delete") {
 			this.props.deleteRequest(`http://localhost:2000/patients/${id}`, res => {
 				var responseBox = $(".EditPatient .response-box");
@@ -233,7 +331,7 @@ export default class EditPatient extends React.Component {
 			});
 		}
 
-		// If the patient presses SAVE
+		// If the user presses SAVE
 		if (this.props.activeItem === "submit") {
 			this.props.putRequest(
 				`http://localhost:2000/patients/${id}`,
@@ -280,6 +378,5 @@ export default class EditPatient extends React.Component {
 			blood_group: "",
 			check: false
 		});
-		this.props.refreshAllPatients();
 	}
 }

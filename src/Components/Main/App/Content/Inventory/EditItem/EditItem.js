@@ -193,7 +193,7 @@ export default class EditItem extends React.Component {
 
 		// 	If the user presses DELETE
 		if (this.props.activeItem === "delete") {
-			this.props.deleteRequest(`http://localhost:2000/users/${id}`, res => {
+			this.props.deleteRequest(`http://localhost:2000/items/${id}`, res => {
 				var responseBox = $(".EditItem .response-box");
 
 				if (res.status === 202) {
@@ -233,7 +233,7 @@ export default class EditItem extends React.Component {
 
 		// If the user presses SAVE
 		if (this.props.activeItem === "submit") {
-			this.props.putRequest(`http://localhost:2000/users/${id}`, data, res => {
+			this.props.putRequest(`http://localhost:2000/items/${id}`, data, res => {
 				var responseBox = $(".EditItem .response-box");
 
 				if (res.status === 200) {
